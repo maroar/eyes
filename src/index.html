@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./assets/img/index">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./vendors/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="./vendors/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./vendors/css/starter-template.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="./vendors/js/ie-emulation-modes-warning.js"></script>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Tabela Dinâmica</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Depreciação em Software</h1>
+        <p class="lead">Abaixo, seguem os dados que serão utilizados para o trabalho final da disciplina de Visualização de Dados.</p>
+      </div>
+
+      <!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
+      <script src="./vendors/js/d3.min.js"></script>
+
+      <script type="text/javascript"charset="utf-8">
+        var tabulate = function (data,columns) {
+          var table = d3.select('body').append('table')
+          var thead = table.append('thead')
+          var tbody = table.append('tbody')
+
+          thead.append('tr')
+            .selectAll('th')
+              .data(columns)
+              .enter()
+            .append('th')
+              .text(function (d) { return d })
+
+          var rows = tbody.selectAll('tr')
+              .data(data)
+              .enter()
+            .append('tr')
+
+          var cells = rows.selectAll('td')
+              .data(function(row) {
+                return columns.map(function (column) {
+                  return { column: column, value: row[column] }
+                })
+              })
+              .enter()
+            .append('td')
+              .text(function (d) { return d.value })
+          
+          return table;
+        }
+
+        d3.csv('./data/data.csv',function (data) {
+          console.log(data);
+          var columns = ['city','state','population','land area']
+          tabulate(data,columns)
+        })
+      </script>
+
+      <div class="page-header">
+        <h1>Tabela</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <!-- <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Project Name</th>
+                <th>Stars</th>
+                <th>Category</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table> -->
+        </div>
+      </div> 
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="./vendors/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="./vendors/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./vendors/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
+
