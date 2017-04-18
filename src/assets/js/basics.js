@@ -2,15 +2,17 @@
 var dados;
 
 // constrói o header da tabela
-function buildTableHeader (columnNames) {
-  table = d3.select("body").select("table");
-  table.append("thead").append("tr").selectAll("th").data(columnNames).enter().append("th").text(function (d) {
+function buildTableHeader (columns) {
+  columnNames = columns;
+  var table = d3.select("body").select("table");
+  table.append("thead").append("tr").selectAll("th").data(columns).enter().append("th").text(function(d){
     return d;
   });
 }
 
 // constrói o corpo da tabela
 function buildTableBody (data, columns) {
+  dados = data;
   var table = d3.select('body').select('table');
   var tbody = table.append('tbody');
 
@@ -26,12 +28,13 @@ function buildTableBody (data, columns) {
 
 }
 
-var columnNames = ['city','state','population','land']
+var columnNames;
 
-buildTableHeader (columnNames);
+// buildTableHeader (columnNames);
 
 //carrega os dados do csv
-d3.csv('data/data.csv',function (data) {
+d3.csv('data/dados-tp1.csv',function (data) {
+  buildTableHeader(d3.keys(data[0]));
   buildTableBody(data, columnNames);
 })
 
