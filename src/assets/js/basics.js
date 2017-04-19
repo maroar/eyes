@@ -27,7 +27,7 @@ function buildTableBody(inputData, columns) {
 }
 
 // carrega os dados do csv
-d3.csv('data/dados-tp1.csv',function (inputData) {  
+d3.csv('data/data.csv',function (inputData) {  
   data = inputData;
   buildTableHeader(d3.keys(data[0]));
   buildTableBody(data, columnNames);  
@@ -47,6 +47,7 @@ function search(pattern) {
   cleanTable();
   if (!pattern) {
     buildTableBody(data, columnNames);
+    return;
   }
 
   var res = [];
@@ -59,6 +60,5 @@ function search(pattern) {
         return true;
     });
   });
-
   buildTableBody(res, columnNames);
 }
