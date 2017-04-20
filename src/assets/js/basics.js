@@ -6,9 +6,15 @@ var columnNames;
 function buildTableHeader(columns) {
   columnNames = columns;
   var thead = d3.select("body").select("table").select("thead");
+  /*thead.append("tr").selectAll("th").data(columns).enter().append("th").text(function(d){
+    return d;
+  });*/
   thead.append("tr").selectAll("th").data(columns).enter().append("th").text(function(d){
     return d;
+  }).append("i").attr("class", "pull-right glyphicon glyphicon-sort").attr("data-model", function(d){
+      return d;
   });
+
 }
 
 // constrói o corpo da tabela
@@ -24,6 +30,7 @@ function buildTableBody(inputData, columns) {
   }).enter().append("td").text(function(d) {
   	return d.value;
   });
+
 }
 
 // carrega os dados do csv
@@ -32,7 +39,13 @@ d3.csv('data/data.csv',function (inputData) {
   buildTableHeader(d3.keys(data[0]));
   buildTableBody(data, columnNames);  
   d3.select("#searchTextId").on("input", function() {search(this.value);});
+  d3.selectAll(".glyphicon-sort").on("click", function() {sortTable($(this)); });
 })
+
+function sortTable(pattern){
+    console.log(pattern.attr("data-model"));
+        
+}
 
 // remove all rows from the table
 function cleanTable() {
