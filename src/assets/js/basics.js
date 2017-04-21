@@ -4,8 +4,11 @@ var dataBackup;
 var columnNames;
 var columnOrder;
 var typeOrder = "ascending";
+var page = 1;
+var totalPages;
+var limitByPage;
 
-//build the table header
+// build the table header.
 function buildTableHeader(columns) {
   columnNames = columns;
   var thead = d3.select("body").select("table").select("thead");
@@ -16,7 +19,7 @@ function buildTableHeader(columns) {
   });
 }
 
-// build the table body
+// build the table body.
 function buildTableBody(inputData, columns) {
   var tbody = d3.select('body').select('table').select('tbody');
 
@@ -32,17 +35,22 @@ function buildTableBody(inputData, columns) {
   });
 }
 
-// load the csv data
+// load the csv data.
 d3.csv('data/dados-tp1.csv',function (inputData) {  
   dataBackup = inputData;
   data = dataBackup;
+  limitByPage = 
   buildTableHeader(d3.keys(data[0]));
-  buildTableBody(data, columnNames);  
+  limitByPage = document.getElementById("limitRecords").value;
+  defineLimitPagination(limitByPage);
   d3.select("#searchTextId").on("input", function() {search(this.value);});
-  d3.selectAll(".glyphicon-sort").on("click", function() {sortTable($(this)); });
+  d3.selectAll(".glyphicon-sort").on("click", function() {sortTable($(this));});
+  d3.select("#limitRecords").on('change', function(){defineLimitPagination(this.value);});
+  d3.select("#prev").on("click", function() {previousPage();});
+  d3.select("#next").on("click", function() {nextPage();});
 })
 
-// sorting function that defines whether the data will be sorted in ascending or descending order
+// sorting function that defines whether the data will be sorted in ascending or descending order.
 function sortTable(headers){
   if(columnOrder == headers.attr("data-model")){
     if(typeOrder == 'ascending'){
@@ -54,11 +62,10 @@ function sortTable(headers){
     columnOrder = headers.attr("data-model");
     ascendingTable(headers);
   }
-  cleanTable();
-  buildTableBody(data, columnNames);
+  repaintBody(getDataByLimit(data));
 }
 
-// sort the table data in ascending order
+// sort the table data in ascending order.
 function ascendingTable(headers){
   data.sort(function(x, y) {
     var column = headers.attr("data-model");
@@ -69,7 +76,7 @@ function ascendingTable(headers){
   headers.removeClass('glyphicon-sort').addClass('glyphicon-sort-by-attributes');
 }
 
-// sort the table data in descending order
+// sort the table data in descending order.
 function descendingTable(headers){
   data.sort(function(x, y) {
     var column = headers.attr("data-model");
@@ -80,7 +87,7 @@ function descendingTable(headers){
   headers.removeClass('glyphicon-sort').addClass('glyphicon-sort-by-attributes-alt');
 }
 
-// remove all rows from the table
+// remove all rows from the table.
 function cleanTable() {
   var tableLength = document.getElementById("mainTable").rows.length;
   for (i = 0; i < tableLength-1; i++) {
@@ -88,11 +95,10 @@ function cleanTable() {
   }
 }
 
-// search for pattern passed as parameter
+// search for pattern passed as parameter.
 function search(pattern) {
-  cleanTable();
   if (!pattern) {
-    buildTableBody(data, columnNames);
+    pagination(data);
     return;
   }
 
@@ -106,5 +112,73 @@ function search(pattern) {
         return true;
     });
   });
-  buildTableBody(res, columnNames);
+  pagination(res);
+}
+
+// this function creates an array with the limit specified.
+function getDataByLimit(d){
+  var res = [];
+  var start = (d[(limitByPage * page) - limitByPage] != null) ? ((limitByPage * page) - limitByPage) : 0;
+  var i = 0;
+  while(((i + start) < d.length) && (i < limitByPage)){
+    res.push(d[i + start]);
+    i++;
+  }
+  return res;
+}
+
+// this function updates the paging bound according to the value specified by the user.
+function defineLimitPagination(limitRecords){
+  limitByPage = (limitRecords != '' && limitRecords > 0) ? limitRecords : 1;
+  document.getElementById("limitRecords").value = limitByPage;
+  page = 1;
+  pagination(data);
+}
+
+// this function performs the pagination on table.
+function pagination(d){
+  totalPages = ((d.length % limitByPage) == 0) ? parseInt(d.length/limitByPage) : parseInt(d.length/limitByPage) + 1;
+  var res = getDataByLimit(d);
+  repaintBody(res);
+  d3.select("body").select("#infoPage").select("a").text("Showing " + page + " to " + totalPages +" pages");
+  updateButtons()
+}
+
+// updates the data in the table.
+function repaintBody(data){
+  cleanTable();
+  buildTableBody(data, columnNames);
+}
+
+// this function returns a page in the table.
+function previousPage(){
+  if(page > 1){
+    page--;
+    pagination(data);
+  }
+}
+
+// this function advances one page in the table.
+function nextPage(){
+  if(page < totalPages){
+    page++;
+    pagination(data);
+  }
+}
+
+// refresh the paging button states.
+function updateButtons(){  
+  if(page > 1 && page < totalPages){
+    $('#prev').removeClass('disabled');
+    $('#next').removeClass('disabled');
+  } else if(totalPages == 1){
+    $('#prev').addClass('disabled');
+    $('#next').addClass('disabled');
+  } else if(page == totalPages){
+    $('#prev').removeClass('disabled');
+    $('#next').addClass('disabled');
+  } else if(page == 1){
+    $('#prev').addClass('disabled');
+    $('#next').removeClass('disabled');
+  }
 }
