@@ -48,6 +48,8 @@ d3.csv('data/dados-tp1.csv',function (inputData) {
   d3.select("#limitRecords").on('change', function(){defineLimitPagination(this.value);});
   d3.select("#prev").on("click", function() {previousPage();});
   d3.select("#next").on("click", function() {nextPage();});
+ 
+ sizeScroll();
 })
 
 // sorting function that defines whether the data will be sorted in ascending or descending order.
@@ -113,7 +115,7 @@ function search(pattern) {
     });
   });
   pagination(res);
-}
+  }
 
 // this function creates an array with the limit specified.
 function getDataByLimit(d){
@@ -148,6 +150,7 @@ function pagination(d){
 function repaintBody(data){
   cleanTable();
   buildTableBody(data, columnNames);
+   sizeScroll();
 }
 
 // this function returns a page in the table.
@@ -181,4 +184,46 @@ function updateButtons(){
     $('#prev').addClass('disabled');
     $('#next').removeClass('disabled');
   }
+}
+
+function sizeScroll(){
+    
+// Change the selector if needed
+var $table = $('#mainTable'),
+    $bodyCells = $table.find('tbody tr:first').children(),
+    colWidth;
+// Adjust the width of thead cells when window resizes
+
+var maior=95;
+    $(window).resize(function() {
+    // Get the tbody columns width array
+   
+    colWidth = $bodyCells.map(function() {
+        return $(this).width();
+    }).get();
+for(var i =0; i<colWidth.length;i++){
+    
+        if(colWidth[i]>=maior){
+        if(maior <=90){
+            maior=colWidth[i];
+            
+        }else{
+            maior=95;
+        }
+    }
+}
+    
+    // Set the width of thead columns
+
+    $table.find('thead th').children().each(function(i, v) {
+         $(v).width(colWidth[i]);
+         
+    });   
+    // Set the width of thead columns
+    $table.find('tbody tr').children().each(function(i, v) {
+        $(v).width(maior);
+          //$(v).width(colWidth[i]);
+    });    
+}).resize(); 
+
 }
