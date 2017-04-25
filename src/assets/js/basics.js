@@ -31,7 +31,7 @@ function buildTableBody(inputData, columns) {
       return {column: column, value: row[column]}
     })
   }).enter().append("td").text(function(d) {
-  	return d.value;
+  return d.value;
   });
 }
 
@@ -188,42 +188,36 @@ function updateButtons(){
 
 function sizeScroll(){
     
-// Change the selector if needed
-var $table = $('#mainTable'),
+  // change the selector if needed
+  var $table = $('#mainTable'),
     $bodyCells = $table.find('tbody tr:first').children(),
     colWidth;
-// Adjust the width of thead cells when window resizes
-
-var maior=95;
+    
+    // adjust the width of thead cells when window resizes
+    var larger=95;
     $(window).resize(function() {
-    // Get the tbody columns width array
-   
-    colWidth = $bodyCells.map(function() {
+    
+      // get the tbody columns width array
+      colWidth = $bodyCells.map(function() {
         return $(this).width();
-    }).get();
-for(var i =0; i<colWidth.length;i++){
-    
-        if(colWidth[i]>=maior){
-        if(maior <=90){
-            maior=colWidth[i];
-            
-        }else{
-            maior=95;
-        }
-    }
-}
-    
-    // Set the width of thead columns
+      }).get();
 
+      for(var i =0; i<colWidth.length;i++){
+        if(colWidth[i]>=larger){
+          larger = (larger <= 90) ? colWidth[i] : 95;
+        }
+      }
+      
+    // set the width of thead columns
     $table.find('thead th').children().each(function(i, v) {
-         $(v).width(colWidth[i]);
-         
-    });   
-    // Set the width of thead columns
+      $(v).width(colWidth[i]);
+    });
+
+    // set the width of thead columns
     $table.find('tbody tr').children().each(function(i, v) {
-        $(v).width(maior);
-          //$(v).width(colWidth[i]);
+      $(v).width(larger);
     });    
-}).resize(); 
+
+  }).resize(); 
 
 }
