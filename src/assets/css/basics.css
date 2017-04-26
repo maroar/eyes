@@ -63,3 +63,9 @@ tbody td:last-child, thead th:last-child, tfoot td:last-child {
 #controls{
   top:80%;
 }
+#msg{
+    display: none;
+    background:rgba(228, 153, 151, 0.52);
+    text-align: center;
+    
+}
