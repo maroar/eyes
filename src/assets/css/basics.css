@@ -4,7 +4,7 @@
 }
 
 div.table-responsive{
-  height:550px;
+  height:450px;
   position:relative;
 }
 
@@ -64,8 +64,6 @@ tbody td:last-child, thead th:last-child, tfoot td:last-child {
   top:80%;
 }
 #msg{
-    display: none;
-    background:rgba(228, 153, 151, 0.52);
-    text-align: center;
-    
+  display: none;
+  text-align: center;  
 }
