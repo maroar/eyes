@@ -71,7 +71,7 @@ function sortTable(headers){
 function ascendingTable(headers){
   data.sort(function(x, y) {
     var column = headers.attr("data-model");
-    return (!isNaN(Number(x[column])) && !isNaN(Number(y[column]))) ? x[column]-y[column] : d3.ascending(x[column], y[column]);
+    return (!isNaN(Number(x[column])) && !isNaN(Number(y[column]))) ? x[column]-y[column] : d3.ascending(x[column].toLowerCase(), y[column].toLowerCase());
   });
   typeOrder = "ascending";
   $('.glyphicon').removeClass().addClass('pull-right glyphicon glyphicon-sort');
@@ -82,7 +82,7 @@ function ascendingTable(headers){
 function descendingTable(headers){
   data.sort(function(x, y) {
     var column = headers.attr("data-model");
-    return (!isNaN(Number(x[column])) && !isNaN(Number(y[column]))) ? y[column]-x[column] : d3.descending(x[column], y[column]);
+    return (!isNaN(Number(x[column])) && !isNaN(Number(y[column]))) ? y[column]-x[column] : d3.descending(x[column].toLowerCase(), y[column].toLowerCase());
   });
   typeOrder = "descending";
   $('.glyphicon').removeClass().addClass('pull-right glyphicon glyphicon-sort');
@@ -99,13 +99,16 @@ function cleanTable() {
 
 // search for pattern passed as parameter.
 function search(pattern) {
+  page = 1;
+  resetSorting();
   if (!pattern) {
+    data = dataBackup;
     pagination(data);
     return;
   }
 
   var res = [];
-  data.forEach(function(d) { 
+  dataBackup.forEach(function(d) { 
     columnNames.every(function(e) {
       if (d[e].includes(pattern)) {
         res.push(d);
@@ -114,8 +117,16 @@ function search(pattern) {
         return true;
     });
   });
-  pagination(res);
-  }
+  data = res;
+  pagination(data);
+}
+
+// clears the sort order when the search feature is activated.
+function resetSorting(){
+  $('.glyphicon').removeClass().addClass('pull-right glyphicon glyphicon-sort');
+  typeOrder = "ascending";
+  columnOrder = "";
+}
 
 // this function creates an array with the limit specified.
 function getDataByLimit(d){
@@ -140,6 +151,7 @@ function defineLimitPagination(limitRecords){
 // this function performs the pagination on table.
 function pagination(d){
   totalPages = ((d.length % limitByPage) == 0) ? parseInt(d.length/limitByPage) : parseInt(d.length/limitByPage) + 1;
+  totalPages = (totalPages == 0) ? 1 : totalPages;
   var res = getDataByLimit(d);
   repaintBody(res);
   d3.select("body").select("#infoPage").select("a").text("Showing " + page + " to " + totalPages +" pages");
@@ -150,7 +162,7 @@ function pagination(d){
 function repaintBody(data){
   cleanTable();
   buildTableBody(data, columnNames);
-   sizeScroll();
+  sizeScroll();
 }
 
 // this function returns a page in the table.
@@ -187,7 +199,11 @@ function updateButtons(){
 }
 
 function sizeScroll(){
-    
+
+  if(data.length == 0){
+    return;
+  }
+
   // change the selector if needed
   var $table = $('#mainTable'),
     $bodyCells = $table.find('tbody tr:first').children(),
