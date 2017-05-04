@@ -1,0 +1,69 @@
+.glyphicon{
+  cursor: pointer;
+  position: relative;
+}
+
+div.table-responsive{
+  height:450px;
+  position:relative;
+}
+
+#mainTable {
+  border-collapse: collapse; 
+  border-spacing: 0;
+  border: 2px solid black;
+  font-size: 12px;
+  white-space: initial; 
+}
+
+#mainTable tbody,
+#mainTable thead,
+#mainTable tfoot {
+  display: block; 
+}
+
+thead tr,
+tfoot tr { 
+  height: 30px;
+  line-height: 30px;
+}
+
+thead {
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height: 100px;
+  margin-bottom: 100px;
+  z-index: 100;
+}
+
+tfoot { 
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+#mainTable tbody {
+  overflow-y: auto;
+  overflow-x: hidden;
+  position:absolute;
+  top:30px;
+  bottom:30px;
+}
+
+tbody{  
+  margin-top: 17px;
+}
+tbody td:last-child, thead th:last-child, tfoot td:last-child {
+  border-right: none;
+}
+
+#controls{
+  top:80%;
+}
+#msg{
+  display: none;
+  text-align: center;  
+}
