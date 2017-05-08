@@ -1,0 +1,302 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"th",
+				"th\tTag"
+			],
+			[
+				"co",
+				"columns"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/marcus/Dropbox/visualizacao/eyes/src/assets/js/basics.js",
+		"/home/marcus/Dropbox/visualizacao/eyes/src/index.html",
+		"/home/marcus/Dropbox/visualizacao/eyes/src/data/data.csv",
+		"/home/marcus/gnulib/lib/hash.c",
+		"/home/marcus/gnulib/lib/hash.h",
+		"/home/marcus/Papers/Grif/SBLP17/sample-sigconf.tex",
+		"/home/marcus/Papers/Grif/SBLP17/abstract.tex",
+		"/home/marcus/Papers/Grif/SBLP17/introduction.tex",
+		"/home/marcus/Papers/Grif/SBLP17/overview.tex",
+		"/home/marcus/Papers/Grif/SBLP17/futureWorks.tex",
+		"/home/marcus/Papers/Grif/SBLP17/sigproc.bib",
+		"/home/marcus/Papers/Grif/SBLP17/relatedWorks.tex",
+		"/home/marcus/Papers/Grif/SBLP17/strongInterfaces.tex",
+		"/home/marcus/Papers/Grif/SBLP17/rangeAnalysis.tex",
+		"/home/marcus/Papers/Kir/SBLP17/relatedworks.tex",
+		"/home/marcus/Papers/Grif/SBLP17/conclusion.tex",
+		"/home/marcus/Papers/Grif/SBLP17/evaluation.tex",
+		"/home/marcus/pcc/paper/ACM_to_submit/supplementary.tex",
+		"/home/marcus/Papers/Grif/SBLP17/makefile",
+		"/home/marcus/pcc/paper/SBLP17/paper.tex",
+		"/home/marcus/pcc/paper/SBLP17/references.bib",
+		"/home/marcus/Papers/Grif/SBLP17/planning.tex",
+		"/home/marcus/Papers/Grif/SBLP17/01_introduction.tex",
+		"/home/marcus/Papers/Grif/SBLP17/sample-sigconf.bib",
+		"/home/marcus/Papers/Grif/SBLP17/sigchi-a.bib",
+		"/home/marcus/Papers/Grif/SBLP17/sample-bibliography.bib",
+		"/home/marcus/Papers/Grif/SBLP17/acmart.bib",
+		"/home/marcus/Papers/Grif/SBLP17/acmart.dtx",
+		"/home/marcus/Papers/Grif/SBLP17/sample-sigconf.bbl",
+		"/home/marcus/Downloads/acmart/sample-sigconf.tex",
+		"/home/marcus/Downloads/acmart/sample-acmlarge.tex"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"insert",
+			"range",
+			"em \\ci",
+			"DeadCodeElimination",
+			"277732",
+			"ex_ra",
+			"acontece",
+			"Acont",
+			"acontece",
+			"quando",
+			"array",
+			"getArray",
+			"setm",
+			"acmart",
+			"PlenumPress",
+			"bib",
+			"samplebody",
+			"samplebody-",
+			"default: pdf\n\npdf:\n\tpdflatex sample-sigconf\n\tpdflatex sample-sigconf\n\tbibtex sigproc\n\tpdflatex sample-sigconf\n\nclean:\n\t- rm *.pdf\n\t- rm *.log\n\t- rm *.bbl\n\t- rm *.blg\n\t- rm *.out\n",
+			"Acontece",
+			"arraystretch",
+			"constro",
+			"constrm"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 42.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "visualizacao_tp1.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"hash",
+				"lib/hash.h"
+			],
+			[
+				"",
+				"lib/hash.c"
+			],
+			[
+				"has",
+				"lib/hash.c"
+			],
+			[
+				"range",
+				"Grif/SBLP17/rangeAnalysis.tex"
+			],
+			[
+				"grif.bib",
+				"Grif/SBLP17/sigproc.bib"
+			],
+			[
+				"over",
+				"Grif/SBLP17/overview.tex"
+			],
+			[
+				"rela",
+				"Grif/SBLP17/relatedWorks.tex"
+			],
+			[
+				"abs",
+				"Grif/SBLP17/abstract.tex"
+			],
+			[
+				"grifin",
+				"Grif/SBLP17/introduction.tex"
+			],
+			[
+				"grifsigtex",
+				"Grif/SBLP17/sample-sigconf.tex"
+			],
+			[
+				"rang",
+				"Grif/SBLP17/rangeAnalysis.tex"
+			],
+			[
+				"strin",
+				"Grif/SBLP17/strongInterfaces.tex"
+			],
+			[
+				"griffut",
+				"Grif/SBLP17/futureWorks.tex"
+			],
+			[
+				"sample-sigconf.te",
+				"Grif/SBLP17/sample-sigconf.tex"
+			],
+			[
+				"ove",
+				"Grif/SBLP17/overview.tex"
+			],
+			[
+				"str",
+				"Grif/SBLP17/strongInterfaces.tex"
+			],
+			[
+				"bib",
+				"Grif/SBLP17/sigproc.bib"
+			],
+			[
+				"ran",
+				"Grif/SBLP17/rangeAnalysis.tex"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Papers/Grif/grifPaper.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 264.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
