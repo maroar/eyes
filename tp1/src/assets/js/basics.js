@@ -42,7 +42,7 @@ function buildTableBody(inputData, columns) {
 }
 
 // load the csv data.
-d3.csv('data/dados-tp1.csv', function (inputData) {
+d3.csv('data/data.csv', function (inputData) {
     dataBackup = inputData;
     data = dataBackup;
     limitByPage =
