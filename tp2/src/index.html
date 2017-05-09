@@ -93,30 +93,40 @@
 
     <script>
       // debug
-      var debug;
+      var debug; 
 
-      // svg attributes 
-      var margin, width, height;
+      // svg limits 
+      var margin // {top, right, bottom, left}
+        , width
+        , height;
 
-      // chart attributes
-      var x, y;
+      // chart scale attributes
+      var x
+        , y;
 
       // colors
       var color;
 
-      // coordinates
-      var xAxis, yAxis;
+      // coordinate constructors
+      var xAxis
+        , yAxis;
 
       // main canvas
       var svg;
 
       // data
-      var data;
+      var data // data about the countries
+        , countries // lang data
+        , data_ // processed data about countries 
+        , countries_; // processed data about different names
+
+      // flower attributes
+      var radius; // max radius value
 
       function init() {
         margin = {top: 20, right: 20, bottom: 30, left: 40};
-        width = 960 - margin.left - margin.right;
-        height = 500 - margin.top - margin.bottom;
+        width = 1200 - margin.left - margin.right;
+        height = 550 - margin.top - margin.bottom;
 
         x = d3.scaleBand()
           .rangeRound([0, width]);
@@ -138,19 +148,116 @@
       }
 
       function buildAxis() {
-        x.domain(data.map(function(d) { return d.name; }));
+        x.domain(data.map(function(d) { return d.country; }));
 
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
             .call(xAxis);
 
-        var max = d3.max(data, function(d) { return d.value; });
-        y.domain([0, max]).nice();
+        y.domain([0.0, 1.0]).nice();
 
         svg.append("g")
             .attr("class", "y axis")
             .call(yAxis);
+
+        radius = x.step()/2;
+      }
+
+      function avg(country) {
+        return (data_[country]["housing"] 
+              + data_[country]["income"]
+              + data_[country]["jobs"]
+              + data_[country]["community"]
+              + data_[country]["education"]
+              + data_[country]["environment"]
+              + data_[country]["civic engagement"]
+              + data_[country]["health"]
+              + data_[country]["life satisfaction"]
+              + data_[country]["safety"]
+              + data_[country]["work-life balance"]
+              )/11;
+      }
+
+      function processData() {
+        data_ = {};
+        data.forEach(function(d) {
+          data_[d.country] = {};
+          
+          data_[d.country]["housing"] = +d.housing;                        // 1
+          data_[d.country]["income"] = +d.income;                          // 2
+          data_[d.country]["jobs"] = +d.jobs;                              // 3
+          data_[d.country]["community"] = +d.community;                    // 4
+          data_[d.country]["education"] = +d.education;                    // 5
+          data_[d.country]["environment"] = +d.environment;                // 6
+          data_[d.country]["civic engagement"] = +d["civic engagement"];   // 7
+          data_[d.country]["health"] = +d["health"];                       // 8
+          data_[d.country]["life satisfaction"] = +d["life satisfaction"]; // 9
+          data_[d.country]["safety"] = +d.safety;                          // 10
+          data_[d.country]["work-life balance"] = +d["work-life balance"]; // 11
+
+          data_[d.country]["avg"] = avg(d.country);
+          data_[d.country]["cx"] = x(d.country)+x.step()/2;
+          data_[d.country]["cy"] = y(data_[d.country]["avg"]);
+        });
+
+        countries_ = {};
+        countries.forEach(function(d) {
+          countries_[d.code] = {};
+          countries_[d.code]["en"] = d.en;
+          countries_[d.code]["fr"] = d.fr;
+          countries_[d.code]["es"] = d.es;
+          countries_[d.code]["ru"] = d.ru;
+          countries_[d.code]["de"] = d.de;
+          countries_[d.code]["pt"] = d.pt;
+          countries_[d.code]["it"] = d.it;
+        });
+      }
+
+      function insertFlowers() {
+        var flowers = svg.selectAll(".flowers")
+          .data(data)
+          .enter()
+          .append("g")
+            .attr("class", "flowers");
+
+        var line = flowers.append("line")
+            .attr("x1", function(d) { return data_[d.country].cx; })
+            .attr("y1", function(d) { return data_[d.country].cy; })
+            .attr("x2", function(d) { return data_[d.country].cx; })
+            .attr("y2", height)
+            .attr("stroke-width", 1)
+            .attr("stroke", "green");
+
+        var center = flowers.append("circle")
+            .attr("class", "dot")
+            .attr("r", 2)
+            .attr("cx", function(d) { return data_[d.country].cx; })
+            .attr("cy", function(d) { return data_[d.country].cy; })
+            .style("fill", function(d) { return color(d.country); });
+
+        var metrics = ["housing", "income", "jobs", "community", "education", "environment", "civic engagement", "health", "life satisfaction", "safety", "work-life balance"];
+        metrics.forEach(function(m, i) {
+          var theta = (i * 36) * Math.PI / 180.0;
+          flowers.append("line")
+            .attr("x1", function(d) { return data_[d.country].cx; })
+            .attr("y1", function(d) { return data_[d.country].cy; })
+            .attr("x2", function(d) { return (data_[d.country].cx + Math.cos(theta)*radius*data_[d.country][m]); })
+            .attr("y2", function(d) { return (data_[d.country].cy + Math.sin(theta)*radius*data_[d.country][m]); })
+            .attr("stroke-width", 2)
+            .attr("stroke", function(d) { return color(m); });
+        });
+
+        var labels = flowers.append("text")
+            .attr("font-family", "arial")
+            .attr("font-size", "12px")
+            .attr("fill", "black") 
+            .style("font-weight", "bold")
+            .attr("transform", function(d) { 
+              return ("translate("+(data_[d.country].cx - 2)
+                +","+(data_[d.country].cy + 15)+")rotate(90)"); 
+            })
+            .text(function(d) { return countries_[d.country].pt;});
       }
 
       function builVisualization() {
@@ -160,20 +267,26 @@
 
         buildAxis();
 
+        processData();
+
+        insertFlowers();
+
         if (debug)
           console.log("end of builVisualization!");
       }
 
-      d3.csv("./data/teste.csv", function(error, inputData) {
-          if (error) alert("Problema para ler os dados!");
+      d3.csv("./data/data.csv", function(error, inputData) {
+          if (error) alert("Problema para ler os dados de entrada!");
 
-          data = inputData;
+          data = inputData;          
 
-          data.forEach(function(d) {
-            d.value = +d.value;
+          d3.json("./data/countries.json", function(error2, json) {
+            if (error2) alert("Problema para ler os dados sobre os países!");
+
+            countries = json;
+
+            builVisualization();
           });
-
-          builVisualization();
       });
     </script>
 
