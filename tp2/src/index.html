@@ -26,6 +26,21 @@
         font: 10px sans-serif;
       }
 
+      .tooltip{
+position: absolute; 
+  text-align: center; 
+  width: 13%; 
+  height:10%;   
+  padding: 2vw; 
+  font: 1.2vw sans-serif;   
+  border: 0px;          
+  border-radius: 8px;
+  color:black;
+  box-shadow: -3px 3px 15px #888888;
+  opacity:0;  
+
+}
+
       .axis line,
       .axis path {
         fill: none;
@@ -74,10 +89,15 @@
       </div>
     </nav>
 
+    <div class="screen-size"/>
+    <!-- <div class="window-size"/> -->
+
+
     <div class="container">
       <div class="starter-template">
         <h1>TP2 - Visualização com D3</h1>
       </div>
+      <div id = "svgContent"></div>
     </div>
 
     <!-- Import D3 -->
@@ -125,8 +145,10 @@
 
       function init() {
         margin = {top: 20, right: 20, bottom: 30, left: 40};
-        width = 1200 - margin.left - margin.right;
-        height = 550 - margin.top - margin.bottom;
+        width = window.innerWidth - margin.left - margin.right;
+        height = (window.innerHeight/1.5) - margin.top - margin.bottom;
+        // width = 1200 - margin.left - margin.right;
+        // height = 550 - margin.top - margin.bottom;
 
         x = d3.scaleBand()
           .rangeRound([0, width]);
@@ -229,25 +251,6 @@
             .attr("stroke-width", 1)
             .attr("stroke", "green");
 
-        var center = flowers.append("circle")
-            .attr("class", "dot")
-            .attr("r", 2)
-            .attr("cx", function(d) { return data_[d.country].cx; })
-            .attr("cy", function(d) { return data_[d.country].cy; })
-            .style("fill", function(d) { return color(d.country); });
-
-        var metrics = ["housing", "income", "jobs", "community", "education", "environment", "civic engagement", "health", "life satisfaction", "safety", "work-life balance"];
-        metrics.forEach(function(m, i) {
-          var theta = (i * 36) * Math.PI / 180.0;
-          flowers.append("line")
-            .attr("x1", function(d) { return data_[d.country].cx; })
-            .attr("y1", function(d) { return data_[d.country].cy; })
-            .attr("x2", function(d) { return (data_[d.country].cx + Math.cos(theta)*radius*data_[d.country][m]); })
-            .attr("y2", function(d) { return (data_[d.country].cy + Math.sin(theta)*radius*data_[d.country][m]); })
-            .attr("stroke-width", 2)
-            .attr("stroke", function(d) { return color(m); });
-        });
-
         var labels = flowers.append("text")
             .attr("font-family", "arial")
             .attr("font-size", "12px")
@@ -258,6 +261,36 @@
                 +","+(data_[d.country].cy + 15)+")rotate(90)"); 
             })
             .text(function(d) { return countries_[d.country].pt;});
+
+        var center = flowers.append("g").attr("class", "flower").append("circle")
+            .attr("class", "dot")
+            .attr("r", 2)
+            .attr("cx", function(d) { return data_[d.country].cx; })
+            .attr("cy", function(d) { return data_[d.country].cy; })
+            .style("fill", function(d) { return color(d.country); });
+
+        var metrics = ["housing", "income", "jobs", "community", "education", "environment", "civic engagement", "health", "life satisfaction", "safety", "work-life balance"];
+
+        metrics.forEach(function(m, i) {
+          var theta = (i * 36) * Math.PI / 180.0;
+          flowers.selectAll(".flower").append("line")
+            .attr("x1", function(d) { return data_[d.country].cx; })
+            .attr("y1", function(d) { return data_[d.country].cy; })
+            .attr("x2", function(d) { return (data_[d.country].cx + Math.cos(theta)*radius*data_[d.country][m]); })
+            .attr("y2", function(d) { return (data_[d.country].cy + Math.sin(theta)*radius*data_[d.country][m]); })
+            .attr("stroke-width", 2)
+            .attr("stroke", function(d) { return color(m); })
+            .attr("class", "petal")
+            .attr("data-target", m.replace(" ", "-"))
+            .on("mouseover", function(){
+              d3.selectAll(".petal").attr("opacity", 0.4);
+              var selector = '[data-target=' + d3.select(this).attr("data-target") + ']';
+              $(selector).attr("opacity", 1);
+            }).on("mouseout", function(){
+              d3.selectAll(".petal").attr("opacity", 1);
+            });
+        });
+
       }
 
       function builVisualization() {
@@ -270,6 +303,10 @@
         processData();
 
         insertFlowers();
+
+        d3.select("#next").on("click", function () {
+          nextPage();
+        });
 
         if (debug)
           console.log("end of builVisualization!");
@@ -288,6 +325,13 @@
             builVisualization();
           });
       });
+
+      window.addEventListener('resize', function(){
+        d3.select("svg").remove();
+        builVisualization();
+      });
+
+
     </script>
 
   </body>
