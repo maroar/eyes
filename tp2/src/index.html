@@ -20,26 +20,13 @@
 
     <script src="./vendors/js/ie-emulation-modes-warning.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="./assets/css/tooltip.css"/>
+
     <style>
 
       body {
         font: 10px sans-serif;
       }
-
-      .tooltip{
-position: absolute; 
-  text-align: center; 
-  width: 13%; 
-  height:10%;   
-  padding: 2vw; 
-  font: 1.2vw sans-serif;   
-  border: 0px;          
-  border-radius: 8px;
-  color:black;
-  box-shadow: -3px 3px 15px #888888;
-  opacity:0;  
-
-}
 
       .axis line,
       .axis path {
@@ -89,15 +76,10 @@ position: absolute;
       </div>
     </nav>
 
-    <div class="screen-size"/>
-    <!-- <div class="window-size"/> -->
-
-
     <div class="container">
       <div class="starter-template">
         <h1>TP2 - Visualização com D3</h1>
       </div>
-      <div id = "svgContent"></div>
     </div>
 
     <!-- Import D3 -->
@@ -108,6 +90,8 @@ position: absolute;
     <script>window.jQuery || document.write('<script src="./vendors/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="./vendors/js/bootstrap.min.js"></script>
     <script src="./vendors/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- <script type='text/javascript' src='./assets/js/jquery-1.6.1.min.js'></script> -->
+    <script type='text/javascript' src='./assets/js/tooltip.js'></script>
     <!-- Custom JavaScript-->
     <!-- <script src="./assets/js/scatter.js"></script> -->
 
@@ -262,7 +246,11 @@ position: absolute;
             })
             .text(function(d) { return countries_[d.country].pt;});
 
-        var center = flowers.append("g").attr("class", "flower").append("circle")
+        var center = flowers.append("g")
+            .attr("class", "flower")
+            .attr("title", function(d) { return data_[d.country].cx; })
+            .attr("rel", "tooltip")
+            .append("circle")
             .attr("class", "dot")
             .attr("r", 2)
             .attr("cx", function(d) { return data_[d.country].cx; })
@@ -311,7 +299,7 @@ position: absolute;
         if (debug)
           console.log("end of builVisualization!");
       }
-
+      
       d3.csv("./data/data.csv", function(error, inputData) {
           if (error) alert("Problema para ler os dados de entrada!");
 
@@ -323,12 +311,14 @@ position: absolute;
             countries = json;
 
             builVisualization();
+            tooltip();
           });
       });
 
       window.addEventListener('resize', function(){
         d3.select("svg").remove();
         builVisualization();
+         tooltip();
       });
 
 
