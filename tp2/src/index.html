@@ -128,7 +128,7 @@
       var radius; // max radius value
 
       function init() {
-        margin = {top: 20, right: 20, bottom: 30, left: 40};
+        margin = {top: 20, right: 50, bottom: 30, left: 50};
         width = window.innerWidth - margin.left - margin.right;
         height = (window.innerHeight/1.5) - margin.top - margin.bottom;
         // width = 1200 - margin.left - margin.right;
@@ -171,6 +171,7 @@
       }
 
       function avg(country) {
+        var amountMetrics = Object.keys(data_[country]).length;
         return (data_[country]["housing"] 
               + data_[country]["income"]
               + data_[country]["jobs"]
@@ -181,8 +182,8 @@
               + data_[country]["health"]
               + data_[country]["life satisfaction"]
               + data_[country]["safety"]
-              + data_[country]["work-life balance"]
-              )/11;
+              + data_[country]["work life balance"]
+              )/amountMetrics;
       }
 
       function processData() {
@@ -200,7 +201,7 @@
           data_[d.country]["health"] = +d["health"];                       // 8
           data_[d.country]["life satisfaction"] = +d["life satisfaction"]; // 9
           data_[d.country]["safety"] = +d.safety;                          // 10
-          data_[d.country]["work-life balance"] = +d["work-life balance"]; // 11
+          data_[d.country]["work life balance"] = +d["work-life balance"]; // 11
 
           data_[d.country]["avg"] = avg(d.country);
           data_[d.country]["cx"] = x(d.country)+x.step()/2;
@@ -221,6 +222,7 @@
       }
 
       function insertFlowers() {
+
         var flowers = svg.selectAll(".flowers")
           .data(data)
           .enter()
@@ -248,7 +250,8 @@
 
         var center = flowers.append("g")
             .attr("class", "flower")
-            .attr("title", function(d) { return data_[d.country].cx; })
+            .attr("data-target", function(d) { return d.country; })
+            // .attr("title", function(d) { return data_[d.country].cx; })
             .attr("rel", "tooltip")
             .append("circle")
             .attr("class", "dot")
@@ -257,10 +260,10 @@
             .attr("cy", function(d) { return data_[d.country].cy; })
             .style("fill", function(d) { return color(d.country); });
 
-        var metrics = ["housing", "income", "jobs", "community", "education", "environment", "civic engagement", "health", "life satisfaction", "safety", "work-life balance"];
+        var metrics = ["housing", "income", "jobs", "community", "education", "environment", "civic engagement", "health", "life satisfaction", "safety", "work life balance"];
 
         metrics.forEach(function(m, i) {
-          var theta = (i * 36) * Math.PI / 180.0;
+          var theta = (i * (360/metrics.length)) * Math.PI / 180.0;
           flowers.selectAll(".flower").append("line")
             .attr("x1", function(d) { return data_[d.country].cx; })
             .attr("y1", function(d) { return data_[d.country].cy; })
@@ -269,7 +272,7 @@
             .attr("stroke-width", 2)
             .attr("stroke", function(d) { return color(m); })
             .attr("class", "petal")
-            .attr("data-target", m.replace(" ", "-"))
+            .attr("data-target", m.replace(/ /g, "-"))
             .on("mouseover", function(){
               d3.selectAll(".petal").attr("opacity", 0.4);
               var selector = '[data-target=' + d3.select(this).attr("data-target") + ']';
@@ -292,10 +295,6 @@
 
         insertFlowers();
 
-        d3.select("#next").on("click", function () {
-          nextPage();
-        });
-
         if (debug)
           console.log("end of builVisualization!");
       }
@@ -311,14 +310,15 @@
             countries = json;
 
             builVisualization();
-            tooltip();
+
+            tooltip(data_, Object.keys(data[0]), countries_);
           });
       });
 
       window.addEventListener('resize', function(){
         d3.select("svg").remove();
         builVisualization();
-         tooltip();
+        tooltip(data_, Object.keys(data[0]), countries_);
       });
 
 
