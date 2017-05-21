@@ -18,7 +18,6 @@ function tooltip(d, k, c) {
   });
 }
 
-
 var marginToolTip = {top: 15, right: 10, bottom: 20, left: 85},
   widthToolTip = 150 - marginToolTip.left - marginToolTip.right,
   heightToolTip = 200 - marginToolTip.top - marginToolTip.bottom;
@@ -65,19 +64,20 @@ function drawChartTooltip(top, left, key){
   svg.selectAll(".bar")
     .data(keys)
     .enter().append("rect")
-    .attr("class", function(d) { return "bar bar--positive"; })
+    .attr("class", function(d) { return "bar"; })
+    .attr("fill", function(d) { return color(d); })
     .attr("x", function(d) { return xToolTip(Math.min(0, dataTooltip[flowerSelected][d])); })
     .attr("y", function(d) { return yToolTip(d); })
     .attr("width", function(d) { return Math.abs(xToolTip(dataTooltip[flowerSelected][d]) - xToolTip(0)); })
     .attr("height", yToolTip.bandwidth());
 
   svg.append("g")
-    .attr("class", "x axis")
+    .attr("class", "x-axis")
     .attr("transform", "translate(0," + heightToolTip + ")")
     .call(xAxisToolTip);
 
   svg.append("g")
-    .attr("class", "y axis")
+    .attr("class", "y-axis")
     .attr("transform", "translate(" + xToolTip(0) + ",0)")
     .call(yAxisToolTip);
 }

@@ -28,6 +28,15 @@
         font: 10px sans-serif;
       }
 
+      #sort{
+        padding: 0px 0px 0px 15px;
+        width: 100%;
+      }
+
+      .starter-template{
+        padding: 10px 15px;
+      }
+
       .axis line,
       .axis path {
         fill: none;
@@ -71,14 +80,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Flowers</a>
+          <a class="navbar-brand">Flowers</a>
         </div>
+
       </div>
     </nav>
+    <div id="sort" class="row"></div>
 
     <div class="container">
       <div class="starter-template">
-        <h1>TP2 - Visualização com D3</h1>
+        <h2>TP2 - Visualização com D3</h2>
       </div>
     </div>
 
@@ -123,6 +134,8 @@
         , countries // lang data
         , data_ // processed data about countries 
         , countries_; // processed data about different names
+
+      var metricToSort;
 
       // flower attributes
       var radius; // max radius value
@@ -205,7 +218,7 @@
 
           data_[d.country]["avg"] = avg(d.country);
           data_[d.country]["cx"] = x(d.country)+x.step()/2;
-          data_[d.country]["cy"] = y(data_[d.country]["avg"]);
+          data_[d.country]["cy"] = (metricToSort == null) ? y(data_[d.country]["avg"]) : y(data_[d.country][metricToSort]);
         });
 
         countries_ = {};
@@ -251,7 +264,6 @@
         var center = flowers.append("g")
             .attr("class", "flower")
             .attr("data-target", function(d) { return d.country; })
-            // .attr("title", function(d) { return data_[d.country].cx; })
             .attr("rel", "tooltip")
             .append("circle")
             .attr("class", "dot")
@@ -287,6 +299,8 @@
       function builVisualization() {
         debug = true;
 
+        d3.selectAll("svg").remove();
+
         init();
 
         buildAxis();
@@ -302,12 +316,21 @@
       d3.csv("./data/data.csv", function(error, inputData) {
           if (error) alert("Problema para ler os dados de entrada!");
 
-          data = inputData;          
+          data = inputData; 
+
+          inputData.forEach(function(m, i) {
+            Object.keys(m).forEach(function(d){
+              var key = d.replace("-", " ");
+              data[i][key] = inputData[i][d];
+            })
+          });                
 
           d3.json("./data/countries.json", function(error2, json) {
             if (error2) alert("Problema para ler os dados sobre os países!");
 
             countries = json;
+
+            createOptionsSort();
 
             builVisualization();
 
@@ -316,10 +339,83 @@
       });
 
       window.addEventListener('resize', function(){
-        d3.select("svg").remove();
         builVisualization();
         tooltip(data_, Object.keys(data[0]), countries_);
       });
+
+      var metrics = ["housing", "income", "jobs", "community", "education", "environment", "civic engagement", "health", "life satisfaction", "safety", "work life balance"];
+
+      function createOptionsSort(){
+        var divOption = d3.select("body")
+          .select("#sort")
+          .append("div").attr("class", "btn-group").attr("data-toggle", "buttons-radio");
+
+        divOption.append("a")
+          .attr("class", "btn btn-large btn-primary active")
+          .attr("data-toggle", "tab")
+          .attr("data-model", "alphabetical")
+          .text("alphabetical")
+          .on("click", function(){
+            sortVisualization("alphabetical")
+          });
+
+        divOption.append("a")
+        .attr("class", "btn btn-large btn-primary")
+        .attr("data-toggle", "tab")
+        .attr("data-model", "metrics-mean")
+        .text("metrics mean")
+        .on("click", function(){
+          sortVisualization("metrics-mean")
+        });
+
+        metrics.forEach(function(m, i) {
+          divOption.append("a")
+            .attr("class", "btn btn-large btn-primary")
+            .attr("data-toggle", "tab")
+            .attr("data-model", m)
+            .text(m)
+            .on("click", function(){
+              sortVisualization(m)
+            });;
+        });       
+
+      }
+
+      function sortVisualization(type){
+        if(type == 'alphabetical'){
+          sortByAphabetical();
+        } else if(type == "metrics-mean"){
+          sortByMean();
+        } else{
+          sortByMetric(type);
+        }
+        $(".btn.btn-large.btn-primary").removeClass("active");
+        $("[data-model='" + type + "]'").addClass("active");        
+        builVisualization();
+      }
+
+      function sortByAphabetical(){
+        metricToSort = null;
+        data.sort(function (x, y) {
+          // return (d3.ascending(x["country"], y["country"]));
+          return (d3.ascending(countries_[x["country"]].pt, countries_[y["country"]].pt));
+        });
+      }
+
+      function sortByMean(){
+        metricToSort = null;
+        data.sort(function (x, y) {
+          return (avg(x["country"]) - avg(y["country"]));
+        });
+      }
+
+      function sortByMetric(metric){
+        metricToSort = metric;
+        data.sort(function (x, y) {
+          return (x[metric] - y[metric]);
+        });
+      }
+
 
 
     </script>
