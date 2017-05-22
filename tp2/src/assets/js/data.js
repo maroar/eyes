@@ -37,8 +37,6 @@ function processData(numberOfMetrics) {
     data_[d.country]["work life balance"] = +d["work-life balance"]; // 11
 
     data_[d.country]["avg"] = avg(data_[d.country], numberOfMetrics);
-    data_[d.country]["cx"] = x(d.country)+x.step()/2;
-    data_[d.country]["cy"] = (metricToSort == null) ? y(data_[d.country]["avg"]) : y(data_[d.country][metricToSort]);
   });
 
   countries_ = {};

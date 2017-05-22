@@ -8,7 +8,10 @@ function builVisualization() {
 
   buildAxis(data.map(function(d) { return d.country; }));
 
-  processData(metrics.length);
+  data.forEach(function(d) {
+    data_[d.country]["cx"] = x(d.country)+radius;
+    data_[d.country]["cy"] = (metricToSort == null) ? y(data_[d.country]["avg"]) : y(data_[d.country][metricToSort]);
+  });
 
   insertFlowers(data, data_, metrics);
 
@@ -36,6 +39,8 @@ d3.csv("./data/data.csv", function(error, inputData) {
     metrics = ["housing", "income", "jobs", "community", "education", "environment", "civic engagement", "health", "life satisfaction", "safety", "work life balance"];
 
     createOptionsSort();
+
+    processData(metrics.length);
 
     builVisualization();
   });
