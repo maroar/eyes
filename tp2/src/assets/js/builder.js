@@ -42,6 +42,8 @@ d3.csv("./data/data.csv", function(error, inputData) {
 
     processData(metrics.length);
 
+    sortByAphabetical();
+
     builVisualization();
   });
 });
