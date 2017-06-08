@@ -146,13 +146,21 @@ svg {
           </ul>
         </nav>
 
-        <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3" id="maincp">
+        <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
           <h1>Overview</h1>
+          <div class="row">
+            <div class="col-sm-12" id="mainCanvas">
 
-          <section class="row text-center placeholders" id="mainCanvas">
-            
-          </section>
-
+            </div>
+            <div class="col-sm-offset-1 col-sm-5" id="div1">
+            </div>
+            <div class="col-sm-offset-1 col-sm-5" id="div2">
+            </div>
+            <div class="col-sm-offset-1 col-sm-5" id="div3">
+            </div>
+            <div class="col-sm-offset-1 col-sm-5" id="div4">
+            </div>
+          </div>
         </main>
       </div>
     </div>
@@ -171,8 +179,7 @@ svg {
 
     <script>
       
-
-      var m = [80, 160, 200, 160],
+      var m = [80, 125, 200, 70],
           w = d3.select("#mainCanvas").node().offsetWidth - m[1] - m[3],
           h = (window.innerHeight * 0.8) - m[0] - m[2]; //
 
@@ -267,7 +274,71 @@ svg {
         function path(d) {
           return line(traits.map(function(p) { return [x(p), y[p](d[p])]; }));
         }
+
+        ////////////////////////////////////////////////////////////////////////
+        // scatter plot
+        ////////////////////////////////////////////////////////////////////////
+        scatterGen("#div1", 0, 2);
+        scatterGen("#div4", 1, 3);
       });
+
+      function scatterGen(place, attr1, attr2) {
+        var margin = {top: 50, right: 50, bottom: 30, left: 30},
+          width = d3.select(place).node().offsetWidth - margin.left - margin.right,
+          height = width - margin.top - margin.bottom;
+
+        var sx = d3.scaleLinear()
+          .range([0, width]);
+
+        var sy = d3.scaleLinear()
+          .range([height, 0]);
+
+        var xAxis = d3.axisBottom(sx);
+        var yAxis = d3.axisLeft(sy);
+
+        var svg = d3.select(place).append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        coord1 = data[traits[attr1]];
+        coord2 = data[traits[attr2]];
+
+        sx.domain(d3.extent(coord1, function(d) { return d; })).nice();
+        sy.domain(d3.extent(coord2, function(d) { return d; })).nice();
+
+        svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis)
+          .append("text")
+            .attr("class", "label")
+            .attr("x", width)
+            .attr("y", -6)
+            .style("text-anchor", "end")
+            .text("Sepal Width (cm)");
+
+        svg.append("g")
+            .attr("class", "y axis")
+            .call(yAxis)
+          .append("text")
+            .attr("class", "label")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .text("Sepal Length (cm)");
+
+        svg.selectAll(".dot")
+            .data(coord1)
+          .enter().append("circle")
+            .attr("class", "dot")
+            .attr("r", 3.5)
+            .attr("cx", function(d, i) { return sx(coord1[i]); })
+            .attr("cy", function(d, i) { return sy(coord2[i]); })
+            .style("fill", "black");
+      }
     </script>
   </body>
 </html>
