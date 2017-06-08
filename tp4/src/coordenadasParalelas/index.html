@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dashboard Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendors/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../vendors/css/dashboard.css" rel="stylesheet">
+        <style type="text/css">
+
+svg {
+  font-size: 14px;
+}
+
+.foreground path {
+  fill: none;
+  stroke-opacity: .5;
+  stroke-width: 1.5px;
+}
+
+.foreground path.fade {
+  stroke: #000;
+  stroke-opacity: .05;
+}
+
+.legend {
+  font-size: 18px;
+  font-style: oblique;
+}
+
+.legend line {
+  stroke-width: 2px;
+}
+
+.setosa {
+  stroke: #800;
+}
+
+.versicolor {
+  stroke: #080;
+}
+
+.virginica {
+  stroke: #008;
+}
+
+.brush .extent {
+  fill-opacity: .3;
+  stroke: #fff;
+  shape-rendering: crispEdges;
+}
+
+.axis line, .axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  text-shadow: 0 1px 0 #fff;
+  cursor: move;
+}
+
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">Dashboard</a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Settings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Help</a>
+          </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Analytics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Export</a>
+            </li>
+          </ul>
+
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Nav item</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Nav item again</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">One more nav</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Another nav item</a>
+            </li>
+          </ul>
+
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Nav item again</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">One more nav</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Another nav item</a>
+            </li>
+          </ul>
+        </nav>
+
+        <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3" id="maincp">
+          <h1>Overview</h1>
+
+          <section class="row text-center placeholders" id="mainCanvas">
+            
+          </section>
+
+        </main>
+      </div>
+    </div>
+
+    <script src="../vendors/js/d3/d3.min.js"></script>
+    <script src="../vendors/js/jquery-3.1.1.slim.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../vendors/js/tether.min.js"></script>
+    <script src="../vendors/js/bootstrap.min.js"></script>
+    <script src="../vendors/js/ie10-viewport-bug-workaround.js"></script>
+    
+    <!-- 
+    reference:
+    http://mbostock.github.io/d3/talk/20111116/iris-parallel.html
+    -->
+
+    <script>
+      
+
+      var m = [80, 160, 200, 160],
+          w = d3.select("#mainCanvas").node().offsetWidth - m[1] - m[3],
+          h = (window.innerHeight * 0.8) - m[0] - m[2]; //
+
+      var line = d3.line(),
+          axis = d3.axisLeft("left"),
+          foreground;
+
+      var svg = d3.select("#mainCanvas").append("svg")
+          .attr("width", w + m[1] + m[3])
+          .attr("height", h + m[0] + m[2])
+        .append("svg:g")
+          .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+
+      d3.csv("./data/teste.csv", function(error, flowers) {
+        if (error) alert("Problema para ler os dados de entrada!");
+
+        color = d3.scaleOrdinal(d3.schemeCategory10);
+
+        typesDuplicated = []; flowers.map(function(d) { typesDuplicated.push(d.category); });
+        types = typesDuplicated.filter(function(item, pos) {
+          return typesDuplicated.indexOf(item) == pos;
+        });
+        fields = Object.keys(flowers[0]);
+        fields.pop();
+        fields.shift();
+
+        data = {};
+        fields.forEach(function(d) { data[d] = []; });
+        flowers.forEach(function(d) {
+          fields.forEach(function(f) { 
+            data[f].push(+d[f]); 
+          });
+        });
+        
+        species = types; 
+        traits = fields; 
+
+        x = d3.scalePoint().domain(traits).range([0, w]);
+        y = {};
+
+        traits.forEach(function(d) {
+          flowers.forEach(function(p) { p[d] = +p[d]; });
+
+          y[d] = d3.scaleLinear()
+              .domain(d3.extent(data[d]))
+              .range([h, 0]);
+        });
+
+        // Add a legend.
+        var legend = svg.selectAll("g.legend")
+            .data(species)
+          .enter().append("svg:g")
+            .attr("class", "legend")
+            .attr("transform", function(d, i) { return "translate(0," + (i * 20 + h*1.1) + ")"; });
+
+        legend.append("svg:line")
+            .attr("stroke", function(d) { return color(d); })
+            .attr("x2", 8);
+
+        legend.append("svg:text")
+            .attr("x", 12)
+            .attr("dy", ".31em")
+            .text(function(d) { return d; });
+
+        // Add foreground lines.
+        foreground = svg.append("svg:g")
+            .attr("class", "foreground")
+          .selectAll("path")
+            .data(flowers)
+          .enter().append("svg:path")
+            .attr("d", path)
+            .attr("stroke", function(d) { return color(d.category); });
+
+        // Add a group element for each trait.
+        var g = svg.selectAll(".trait")
+            .data(traits)
+          .enter().append("svg:g")
+            .attr("class", "trait")
+            .attr("transform", function(d) { return "translate(" + x(d) + ")"; });
+
+        // Add an axis and title.
+        g.append("svg:g")
+            .attr("class", "axis")
+            .each(function(d) { d3.select(this).call(axis.scale(y[d])); })
+          .append("svg:text")
+            .attr("text-anchor", "middle")
+            .attr("y", -11)
+            .attr("fill", "black")
+            .attr("font-size", 18)
+            .text(String);
+
+        function path(d) {
+          return line(traits.map(function(p) { return [x(p), y[p](d[p])]; }));
+        }
+      });
+    </script>
+  </body>
+</html>

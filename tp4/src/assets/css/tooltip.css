@@ -1,0 +1,24 @@
+
+.tooltip{
+    position:absolute;
+    display:none;
+    padding: 10px 30px;
+    background:#8B8989;
+    color:#fff;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    font-size:16px;
+}
+
+/*thead th {
+    background: #f90;
+}
+
+
+caption {
+    margin: auto;
+    padding: .3em;
+    font-size: 1.1em;
+    font-weight: bold;
+}*/
