@@ -1,0 +1,18 @@
+name,rm,avgAll,category
+iosched,100,2261.36,Application
+muzei,100,6070.0541666667,Application
+k-9,77.7777777778,18610.7741666667,Application
+actor-platform,60.8695652174,1465.2269230769,Application
+Android-PullToRefresh,100,1868.0658730159,Non-web libraries and frameworks
+picasso,100,894.7798850575,Non-web libraries and frameworks
+android-volley,100,18809.7820512821,Non-web libraries and frameworks
+zxing,100,5643.9166666667,Non-web libraries and frameworks
+guice,100,2891.5833333333,Non-web libraries and frameworks
+facebook-android-sdk,100,1106.0773809524,Non-web libraries and frameworks
+Bolts-Android,100,1425.4027777778,Non-web libraries and frameworks
+androidquery,100,52392.8055555555,Non-web libraries and frameworks
+h2o-2,100,1516.2794326241,Non-web libraries and frameworks
+Calligraphy,100,1879.1388888889,Non-web libraries and frameworks
+ListViewAnimations,100,862.3285714286,Non-web libraries and frameworks
+jsoup,100,15876.7625,Non-web libraries and frameworks
+jna,90,3685.8412935323,Non-web libraries and frameworks
