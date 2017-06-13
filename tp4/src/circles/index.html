@@ -167,6 +167,12 @@ svg {
     <!-- 
     reference:
     http://mbostock.github.io/d3/talk/20111116/iris-parallel.html
+
+Eliminados
+    CrossBow,100,0,Web libraries and frameworks
+    citrus,68.1818181818,0,Web libraries and frameworks
+    poi,42.8251121076,0,Application
+
     -->
 
     <script>
@@ -174,31 +180,44 @@ svg {
         if (error) alert("Problema para ler os dados de entrada!");
 
         data = inputData;
+        radius = 10;
+        t = d3.transition()
+          .duration(500)
+          .ease(d3.easeLinear);
 
         names = [];
         ys = [];
-        data.forEach(function(d, i) {
+        ids = [];
+        data.forEach(function(d, i) {         
           names.push(d.name);
           d.avgAll = +d.avgAll;
+          if (d.avgAll <= 0) { alert(d.name);}
+          //ys.push(Math.log(d.avgAll));
           ys.push(d.avgAll);
           d.id = i;
+          ids.push(i);
           d.rm = +d.rm;
         });
 
-        margin = {top: 20, right: 50, bottom: 30, left: 50};
-        width = (d3.select("#mainCanvas").node().offsetWidth*.9) - margin.left - margin.right;
+        margin = {top: 20, right: 50, bottom: 30, left: 80};
+        width = (d3.select("#mainCanvas").node().offsetWidth) - margin.left - margin.right;
         height = (window.innerHeight/1.5) - margin.top - margin.bottom;
 
-        x = d3.scaleBand()
-          .rangeRound([0, width]);
+        x = d3.scaleLinear()
+          .domain(d3.extent(ids))
+          .range([0, width]);//x = d3.scaleBand()
+          //.rangeRound([0, width]);
 
-        y = d3.scaleLinear().range([height, 0]);
+        y = d3.scaleLog()//y = d3.scaleLinear()//
+          .base(2)
+          .domain(d3.extent(ys))
+          .range([height, 0]);
 
         color = d3.scaleOrdinal(d3.schemeCategory10);;
 
         xAxis = d3.axisBottom(x);
 
-        yAxis = d3.axisLeft(y);
+        yAxis = d3.axisLeft(y).ticks(11).tickFormat(function(d) { return y.tickFormat(11,d3.format(".3"))(Math.log(d)); });
 
         svg = d3.select("#mainCanvas").append("svg")
             .attr("width", width + margin.left + margin.right)
@@ -206,29 +225,48 @@ svg {
           .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        x.domain(names);
-
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
-            .call(xAxis);
-
-        y.domain(d3.extent(ys));
+          .call(xAxis).selectAll("text").remove();
 
         svg.append("g")
             .attr("class", "y axis")
-            .call(yAxis);
+          .call(yAxis);
 
-        radius = x.step()/2;
+        svg.append("text")
+            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate(" + (-50) +","+(height/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
+            .text("Attribute Mean (log scale)");
 
-        svg.append("g")
-            .attr("class", "gcircles")
-          .selectAll("circles").data(data).enter().append("circle")
-            .attr("cx", function(d) { return x(d.name)+radius; })
+        svg.append("text")
+            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate("+ (width/2) +","+ (height+20) +")")  // centre below axis
+            .text("Projects");
+
+        circles = svg.append("g").selectAll("circle")
+          .data(data)
+          .enter()
+          .append("circle")
+            .attr("cx", function(d) { return x(d.id); })
             .attr("cy", function(d) { return y(d.avgAll); })
-            .attr("r", function(d) { return (d.rm/100)*4; })
-            .attr("fill", function(d) { return color(d.category); });
+            .attr("r", function(d) { return (d.rm/100)*radius; })
+            .attr("id", function(d) { return "c" + d.id; })
+            .attr("stroke", function(d) { return color(d.category); })
+            .attr("fill", "none")
+          .on("mouseover", handleMouseOver)
+          .on("mouseout", handleMouseOut);
+
       });
+
+      function handleMouseOver(d, i) {  // Add interactivity
+        d3.select("#c" + i).attr("fill", function(d) { return color(d.category); }).attr("r", radius*2);
+      }
+
+      function handleMouseOut(d, i) {
+        d3.select("#c" + i).transition().delay(200).attr("r", function() { return (d.rm/100)*radius; }).on("end", function(a) { this.setAttribute("fill", "none") });
+      }
+
     </script>
   </body>
 </html>

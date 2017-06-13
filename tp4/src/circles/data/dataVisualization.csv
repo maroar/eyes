@@ -71,7 +71,6 @@ Carbon,100,996.4666666667,Non-web libraries and frameworks
 mcpatcher,100,4112.6166666667,Application
 spring-batch,100,2038.0277777778,Non-web libraries and frameworks
 overthere,100,765.8458333333,Non-web libraries and frameworks
-CrossBow,100,0,Web libraries and frameworks
 javaewah,100,1234.2015151515,Non-web libraries and frameworks
 zoie,100,1223.880952381,System Software
 ideavim,100,1614.7777777778,Software tools
@@ -314,7 +313,6 @@ wicket,69.2307692308,2798.3833333333,Web libraries and frameworks
 proctor,69.2307692308,17992.3474358974,Non-web libraries and frameworks
 i2p.i2p,68.9781021898,90181.1166666667,System Software
 selenium,68.1818181818,3620.0616666667,Non-web libraries and frameworks
-citrus,68.1818181818,0,Web libraries and frameworks
 WorldEdit,68.0722891566,1118.9111111111,Application
 browsermob-proxy,68,113176.433333333,Software tools
 liferay-plugins,66.6666666667,3826.3983333333,Application
@@ -443,7 +441,6 @@ aws-sdk-android,43.8679245283,18209.65,Non-web libraries and frameworks
 DSpace,43.6781609195,7018.4857723577,System Software
 android-database-sqlcipher,42.8571428571,997.2166666667,Non-web libraries and frameworks
 gerrit-trigger-plugin,42.8571428571,9777.1898550725,Application
-poi,42.8251121076,0,Application
 owlapi,42.7536231884,12783.6055555556,Non-web libraries and frameworks
 fred,42.6470588235,4455.3237288136,Application
 spring-webflow,42.1052631579,46081.1151515152,Software tools
