@@ -1,0 +1,623 @@
+project,quantFields_last,quantFieldsDeprecated_last,quantTypes_last,quantTypesDeprecated_last,quantMethods_last,quantMethodsDeprecated_last,quantElements_last,quantElementsDeprecated_last,category
+iosched,1101,0,728,0,3703,8,5532,8,Application
+muzei,170,0,161,5,963,0,1294,5,Application
+k-9,858,3,609,2,5393,13,6860,18,Application
+actor-platform,648,0,1472,3,9855,20,11975,23,Application
+Android-PullToRefresh,46,2,66,0,413,12,525,14,Non-web libraries and frameworks
+picasso,272,0,111,0,981,10,1364,10,Non-web libraries and frameworks
+android-volley,68,0,115,0,569,8,752,8,Non-web libraries and frameworks
+zxing,226,0,497,0,2858,5,3581,5,Non-web libraries and frameworks
+guice,833,0,1612,3,6881,2,9326,5,Non-web libraries and frameworks
+facebook-android-sdk,650,0,457,0,3722,3,4829,3,Non-web libraries and frameworks
+Bolts-Android,16,0,27,0,361,2,404,2,Non-web libraries and frameworks
+androidquery,182,0,101,0,1395,2,1678,2,Non-web libraries and frameworks
+h2o-2,3772,0,1423,0,9411,2,14606,2,Non-web libraries and frameworks
+Calligraphy,3,0,18,0,98,1,119,1,Non-web libraries and frameworks
+ListViewAnimations,15,0,124,0,714,1,853,1,Non-web libraries and frameworks
+jsoup,57,0,151,0,1743,1,1951,1,Non-web libraries and frameworks
+jna,11253,0,1306,0,5776,10,18335,10,Non-web libraries and frameworks
+fresco,393,0,557,0,4172,5,5122,5,Non-web libraries and frameworks
+junit,325,0,1047,16,3769,43,5141,59,Non-web libraries and frameworks
+libgdx,8458,4,2657,3,37455,20,48570,27,Non-web libraries and frameworks
+MaterialEditText,34,0,12,0,405,9,451,9,Non-web libraries and frameworks
+stetho,287,0,385,0,1496,3,2168,3,Non-web libraries and frameworks
+neo4j,3323,16,6154,96,43414,165,52891,277,Non-web libraries and frameworks
+guava,2354,0,3947,8,37184,142,43485,150,Non-web libraries and frameworks
+acra,62,0,61,0,422,2,545,2,Non-web libraries and frameworks
+dubbo,1447,1,1467,3,10157,73,13071,77,Non-web libraries and frameworks
+processing,3407,8,424,0,8204,13,12035,21,Non-web libraries and frameworks
+gocd,2361,1,3444,9,28702,111,34507,121,Non-web libraries and frameworks
+MaterialDrawer,153,0,100,0,866,3,1119,3,Non-web libraries and frameworks
+HikariCP,43,0,93,0,1022,3,1158,3,Non-web libraries and frameworks
+robospice,125,2,305,1,1913,1,2343,4,Non-web libraries and frameworks
+roboguice,1148,0,1787,6,7572,25,10507,31,Non-web libraries and frameworks
+HoloEverywhere,607,0,571,0,6020,27,7198,27,Non-web libraries and frameworks
+PhotoView,20,0,33,0,281,21,334,21,Non-web libraries and frameworks
+UltimateRecyclerView,243,1,216,1,1692,10,2151,12,Non-web libraries and frameworks
+druid,781,1,1804,3,11757,16,14342,20,Non-web libraries and frameworks
+netty,2217,14,2112,6,19086,117,23415,137,Software tools
+spring-boot,498,14,3350,3,13557,26,17405,43,Software tools
+OpenRefine,1234,0,645,0,3234,12,5113,12,Software tools
+Hystrix,193,0,517,1,3290,41,4000,42,Software tools
+RxJava,1202,0,779,0,6983,4,8964,4,System Software
+j2objc,4626,4,4045,12,38818,181,47489,197,System Software
+gradle,1234,0,6430,48,32057,22,39721,70,System Software
+atmosphere,856,0,632,0,4815,15,6303,15,System Software
+orientdb,3160,0,2382,7,23384,106,28926,113,System Software
+kotlin,2737,8,6983,7,43473,17,53193,32,System Software
+cassandra,4088,43,3488,6,27544,58,35120,107,System Software
+titan,979,1,1238,1,8575,9,10792,11,System Software
+glide,399,1,672,0,4080,7,5151,8,Web libraries and frameworks
+okhttp,375,0,315,0,4276,4,4966,4,Web libraries and frameworks
+spring-framework,3344,5,10234,50,57894,108,71472,163,Web libraries and frameworks
+commons-io,123,6,244,4,2668,44,3035,54,Non-web libraries and frameworks
+Koloboke,372,0,375,16,2521,27,3268,43,Non-web libraries and frameworks
+parseq,71,0,278,5,1920,27,2269,32,Web libraries and frameworks
+commons-lang,454,11,492,0,6077,21,7023,32,Non-web libraries and frameworks
+zt-exec,18,0,71,0,379,23,468,23,Non-web libraries and frameworks
+WeatherLib,64,0,93,1,570,19,727,20,Non-web libraries and frameworks
+truth,39,0,117,0,1057,20,1213,20,Non-web libraries and frameworks
+jogl,8283,0,1661,0,16767,20,26711,20,Non-web libraries and frameworks
+StartupNews,84,2,124,0,907,14,1115,16,Non-web libraries and frameworks
+chipKIT32-MAX,2372,4,308,0,5567,12,8247,16,Software tools
+raven-java,72,0,121,0,751,15,944,15,Software tools
+minimal-json,22,3,59,0,898,12,979,15,Non-web libraries and frameworks
+jgit,2117,0,1496,8,13161,7,16774,15,Non-web libraries and frameworks
+Android-Universal-Image-Loader,147,0,117,0,815,14,1079,14,Non-web libraries and frameworks
+quickblox-android-sdk,438,2,173,0,1686,12,2297,14,Application
+jgraphx,1471,0,334,0,3917,14,5722,14,Non-web libraries and frameworks
+adblockplusandroid,239,0,122,0,1014,12,1375,12,Application
+Carbon,213,0,172,3,1657,9,2042,12,Non-web libraries and frameworks
+mcpatcher,514,0,324,0,2157,11,2995,11,Application
+spring-batch,770,0,1983,5,11062,6,13815,11,Non-web libraries and frameworks
+overthere,280,0,143,5,1081,5,1504,10,Non-web libraries and frameworks
+CrossBow,117,0,207,0,1058,8,1382,8,Web libraries and frameworks
+javaewah,74,0,87,0,1225,8,1386,8,Non-web libraries and frameworks
+zoie,147,0,174,0,1394,8,1715,8,System Software
+ideavim,323,0,675,0,2518,8,3516,8,Software tools
+jcabi-aspects,31,0,82,0,285,7,398,7,Non-web libraries and frameworks
+webmagic,73,0,247,1,1089,6,1409,7,Web libraries and frameworks
+osmdroid,323,0,218,4,1557,2,2098,6,Non-web libraries and frameworks
+elephant-bird,196,0,388,5,2052,1,2636,6,Non-web libraries and frameworks
+nifty,82,0,342,1,2224,5,2648,6,Non-web libraries and frameworks
+bobo,291,0,354,0,2395,6,3040,6,System Software
+st-js,188,0,901,0,3415,6,4504,6,Software tools
+android-maven-plugin,724,3,877,3,4061,0,5662,6,Software tools
+logback,2045,0,1173,0,6042,6,9260,6,Non-web libraries and frameworks
+GLWallpaperService,18,0,28,5,112,0,158,5,Non-web libraries and frameworks
+CLAVIN,37,0,55,2,332,3,424,5,Non-web libraries and frameworks
+Yaaic,260,0,112,0,789,5,1161,5,Application
+feign,102,0,237,0,919,5,1258,5,Web libraries and frameworks
+NotePad,1003,0,284,0,2284,5,3571,5,Application
+xssValidator,90,0,40,1,242,3,372,4,Application
+photup,147,1,126,0,832,3,1105,4,Application
+red5-server,143,0,152,0,1027,4,1322,4,System Software
+selendroid,411,0,437,4,2601,0,3449,4,Non-web libraries and frameworks
+jbox2d,1140,0,312,0,3392,4,4844,4,Non-web libraries and frameworks
+caffeine,852,0,492,0,3991,4,5335,4,Non-web libraries and frameworks
+functionaljava,515,0,320,0,6001,4,6836,4,Non-web libraries and frameworks
+spring-security,597,0,1717,3,8644,1,10958,4,Non-web libraries and frameworks
+Jnario,20378,0,1334,0,17782,4,39494,4,Non-web libraries and frameworks
+ErrorView,27,0,6,0,68,3,101,3,Non-web libraries and frameworks
+tape,23,0,33,1,189,2,245,3,Non-web libraries and frameworks
+java-apns,77,0,89,1,628,2,794,3,Web libraries and frameworks
+karyon,96,1,209,1,874,1,1179,3,Non-web libraries and frameworks
+asynchbase,82,0,134,0,969,3,1185,3,Non-web libraries and frameworks
+parboiled,222,0,321,0,2215,3,2758,3,Software tools
+spock,204,0,401,0,2554,3,3159,3,Non-web libraries and frameworks
+Android-Next,427,0,267,0,2832,3,3526,3,Non-web libraries and frameworks
+jolokia,102,0,488,0,3165,3,3755,3,Web libraries and frameworks
+httl,170,0,330,3,3451,0,3951,3,Software tools
+twitter4j,194,0,414,1,4616,2,5224,3,Non-web libraries and frameworks
+carrot2,1060,1,820,1,4118,1,5998,3,Application
+fabric8,963,0,958,0,6952,3,8873,3,Application
+FBReaderJ,1577,0,1078,0,7520,3,10175,3,Application
+telescope,8,0,17,0,95,2,120,2,Application
+play-pac4j,4,0,13,2,112,0,129,2,Web libraries and frameworks
+WizarDroid,5,0,26,0,124,2,155,2,Non-web libraries and frameworks
+spring-elasticsearch,28,0,39,0,120,2,187,2,Non-web libraries and frameworks
+hibernate-memcached,58,0,25,2,191,0,274,2,Non-web libraries and frameworks
+restcountries,6,0,21,0,248,2,275,2,Non-web libraries and frameworks
+snappy,30,0,31,2,276,0,337,2,Non-web libraries and frameworks
+changeloglib,122,0,54,0,300,2,476,2,Non-web libraries and frameworks
+obd-java-api,12,0,79,0,399,2,490,2,Non-web libraries and frameworks
+spring,9,0,90,0,403,2,502,2,Non-web libraries and frameworks
+fixture-factory,7,0,123,0,544,2,674,2,Software tools
+java-api-wrapper,180,0,57,0,475,2,712,2,Non-web libraries and frameworks
+elasticsearch-jdbc,115,0,89,0,928,2,1132,2,Non-web libraries and frameworks
+simpletask-android,162,0,123,0,1013,2,1298,2,Application
+spring-data-document-examples,119,0,142,0,1121,2,1382,2,Application
+hppc,147,0,145,0,1114,2,1406,2,Non-web libraries and frameworks
+cloudhopper-smpp,335,1,170,0,1386,1,1891,2,Non-web libraries and frameworks
+memcached-session-manager,150,0,249,0,1951,2,2350,2,Software tools
+java,289,0,184,0,1886,2,2359,2,Non-web libraries and frameworks
+android-bankdroid,321,0,261,0,1799,2,2381,2,Application
+mapbox-android-sdk,274,0,232,1,2053,1,2559,2,System Software
+java-memcached-client,216,0,289,0,2323,2,2828,2,Non-web libraries and frameworks
+swift,264,0,423,0,2508,2,3195,2,Non-web libraries and frameworks
+ChatSecureAndroid,1271,0,370,0,3162,2,4803,2,Application
+todo.txt-android,450,0,442,0,4024,2,4916,2,Application
+live-chat-engine,1046,0,769,0,3652,2,5467,2,Application
+facebook4j,107,0,634,0,4954,2,5695,2,Non-web libraries and frameworks
+android-sqlite-asset-helper,0,0,10,0,37,1,47,1,Software tools
+audio-wife,1,0,6,0,56,1,63,1,Non-web libraries and frameworks
+GoogleAuth,4,0,12,0,62,1,78,1,Non-web libraries and frameworks
+MaterialSpinner,6,0,5,0,72,1,83,1,Application
+thymeleaf-layout-dialect,16,0,17,1,65,0,98,1,Web libraries and frameworks
+jenkins-gitlab-merge-request-builder-plugin,1,0,11,0,108,1,120,1,Application
+Android-BitmapCache,23,0,28,0,122,1,173,1,Non-web libraries and frameworks
+guava-retrying,6,0,38,0,179,1,223,1,Non-web libraries and frameworks
+multi-thread-context,32,0,31,1,164,0,227,1,Non-web libraries and frameworks
+material-menu,11,0,24,0,201,1,236,1,Non-web libraries and frameworks
+liblinear-java,32,0,27,0,213,1,272,1,Non-web libraries and frameworks
+maven-gae-plugin,48,1,63,0,210,0,321,1,Software tools
+Android-Iconics,11,0,32,0,328,1,371,1,Non-web libraries and frameworks
+snappy-java,59,0,29,1,306,0,394,1,Application
+netflix-graph,19,0,55,0,345,1,419,1,Non-web libraries and frameworks
+Paginize,9,1,42,0,377,0,428,1,Non-web libraries and frameworks
+webimageloader,28,0,87,0,470,1,585,1,Non-web libraries and frameworks
+jasmine-maven-plugin,59,1,82,0,460,0,601,1,Software tools
+jsonld-java,147,0,72,0,490,1,709,1,Non-web libraries and frameworks
+htmlelements,56,0,122,0,542,1,720,1,Web libraries and frameworks
+m2e-android,15,0,137,0,606,1,758,1,Software tools
+seyren,13,0,94,0,652,1,759,1,Software tools
+libgdx-contribs,98,0,51,1,621,0,770,1,Non-web libraries and frameworks
+dynalink,33,0,129,0,698,1,860,1,Non-web libraries and frameworks
+HearthStats.net-Uploader,241,0,109,0,552,1,902,1,Application
+spring-retry,35,0,165,1,730,0,930,1,Non-web libraries and frameworks
+world,194,0,113,0,626,1,933,1,Application
+v2ex-daily-android,118,0,94,0,739,1,951,1,Non-web libraries and frameworks
+Transitions-Everywhere,130,0,95,0,810,1,1035,1,Non-web libraries and frameworks
+EverMemo,179,0,73,0,801,1,1053,1,Application
+librec,205,0,103,0,967,1,1275,1,Non-web libraries and frameworks
+pebble,42,0,213,1,1129,0,1384,1,Non-web libraries and frameworks
+prevayler,54,0,238,0,1131,1,1423,1,Non-web libraries and frameworks
+floobits-intellij,308,0,178,0,969,1,1455,1,Software tools
+AisenForAndroid,152,0,167,0,1423,1,1742,1,Non-web libraries and frameworks
+sdkexamples-android,325,0,165,1,1442,0,1932,1,Application
+BarcodeScanner,117,0,289,0,1560,1,1966,1,Application
+wiremock,119,0,227,1,1780,0,2126,1,Non-web libraries and frameworks
+gwtbootstrap3,203,0,322,0,2198,1,2723,1,Software tools
+elasticsearch-knapsack,357,0,270,0,2131,1,2758,1,Application
+validator,226,0,274,0,2434,1,2934,1,Application
+TweetLanes,389,0,293,0,2279,1,2961,1,Application
+MonsterHunter4UDatabase,572,0,348,0,2106,1,3026,1,System Software
+metadata-extractor,1393,1,235,0,1509,0,3137,1,Non-web libraries and frameworks
+suro,483,0,393,0,2402,1,3278,1,System Software
+MozStumbler,577,0,353,0,2363,1,3293,1,Software tools
+d2rq,504,0,303,0,2548,1,3355,1,System Software
+jacoco,196,0,489,1,3045,0,3730,1,Non-web libraries and frameworks
+fast-serialization,1018,0,310,0,2751,1,4079,1,Software tools
+enroscar,378,0,495,1,3280,0,4153,1,Software tools
+spring-security-oauth,179,0,874,1,3945,0,4998,1,Web libraries and frameworks
+restx,320,0,819,0,3894,1,5033,1,Web libraries and frameworks
+grpc-java,388,0,505,1,4739,0,5632,1,Non-web libraries and frameworks
+javaslang,149,0,292,0,5308,1,5749,1,Non-web libraries and frameworks
+crash,606,0,849,1,4378,0,5833,1,System Software
+platform_dalvik,2633,0,780,0,6025,1,9438,1,System Software
+openhab,7288,0,3232,0,23099,1,33619,1,Application
+mongo-hadoop,150,39,142,0,1078,20,1370,59,Non-web libraries and frameworks
+lwjgl,8644,3,1064,0,8608,36,18316,39,Non-web libraries and frameworks
+sqoop-release,1125,0,778,182,5322,6,7225,188,System Software
+java-driver,545,1,678,0,4805,28,6028,29,Application
+robocode,496,0,764,1,6302,56,7562,57,Application
+c3p0,478,0,198,6,2251,17,2927,23,Non-web libraries and frameworks
+powermock,529,0,944,2,4082,20,5555,22,Non-web libraries and frameworks
+flyway,44,1,351,3,1900,17,2295,21,Application
+joda-time,484,0,473,5,9888,16,10845,21,Non-web libraries and frameworks
+zaproxy,953,8,1336,19,13393,54,15682,81,Application
+android-support-v4-googlemaps,548,2,396,0,2622,17,3566,19,Non-web libraries and frameworks
+android-xbmcremote,1837,1,609,2,5663,31,8109,34,Non-web libraries and frameworks
+gs-collections,347,1,2915,18,29433,135,32695,154,Non-web libraries and frameworks
+pdfbox,2124,13,1229,1,10043,77,13396,91,Non-web libraries and frameworks
+spring-integration,1048,0,3151,10,16654,16,20853,26,Software tools
+opencms-core,13555,71,3597,8,37907,126,55059,205,Web libraries and frameworks
+Terasology,1222,0,2072,18,16807,33,20101,51,Non-web libraries and frameworks
+bc-java,7316,80,4810,53,30320,273,42446,406,Application
+activejdbc,71,0,346,6,1986,27,2403,33,Non-web libraries and frameworks
+google-api-java-client,193,0,189,0,1072,11,1454,11,Non-web libraries and frameworks
+args4j,130,0,155,0,585,11,870,11,Non-web libraries and frameworks
+groovy-eclipse,71978,627,11923,295,182083,1377,265984,2299,Software tools
+railo,5568,0,2983,11,29636,149,38187,160,Software tools
+assertj-core,555,0,2236,0,10851,20,13642,20,Non-web libraries and frameworks
+pgjdbc,360,1,342,1,3678,18,4380,20,Non-web libraries and frameworks
+android-beacon-library,114,1,101,0,741,9,956,10,Non-web libraries and frameworks
+togglz,76,0,264,1,1150,9,1490,10,Non-web libraries and frameworks
+Smack,883,0,1169,8,7341,60,9393,68,Non-web libraries and frameworks
+jackson-core,469,2,185,0,2361,17,3015,19,Non-web libraries and frameworks
+zk,2066,8,2983,62,21093,280,26142,350,Web libraries and frameworks
+android_frameworks_base,13903,548,2759,69,29093,363,45755,980,Non-web libraries and frameworks
+TwelveMonkeys,1733,0,981,5,7375,11,10089,16,Non-web libraries and frameworks
+languagetool,496,0,1062,1,5664,7,7222,8,Software tools
+spring-android,200,0,566,5,3650,26,4416,31,Non-web libraries and frameworks
+freemarker,735,16,1215,21,7014,76,8964,113,Non-web libraries and frameworks
+ormlite-core,785,0,648,0,3323,15,4756,15,Non-web libraries and frameworks
+keepassdroid,736,5,453,7,2637,3,3826,15,Non-web libraries and frameworks
+spring-data-mongodb,1006,0,956,3,4886,49,6848,52,Software tools
+hudson-2.x,1104,43,1681,28,10653,210,13438,281,System Software
+geoserver,7801,11,6005,15,41658,173,55464,199,System Software
+logstash-logback-encoder,93,1,169,4,1004,17,1266,22,Non-web libraries and frameworks
+shiro,298,2,651,12,4023,14,4972,28,Application
+JavaHamcrest,21,0,178,0,1099,7,1298,7,Non-web libraries and frameworks
+enunciate,608,0,1139,5,6701,2,8448,7,Web libraries and frameworks
+hibernate-orm,3287,37,8602,52,57927,178,69816,267,Non-web libraries and frameworks
+davdroid,700,6,478,14,2673,45,3851,65,Application
+OpenIAB,247,7,64,0,603,19,914,26,Non-web libraries and frameworks
+Applied-Energistics-2,1670,1,1129,7,8000,18,10799,26,Application
+servo,74,0,248,1,1388,12,1710,13,Application
+spring-data-commons,546,0,945,3,3729,10,5220,13,Software tools
+jmeter,995,0,1160,3,10340,42,12495,45,Application
+zookeeper,1188,24,877,4,5345,4,7410,32,Software tools
+jPOS,1165,1,962,6,8844,12,10971,19,Application
+thymeleaf,394,0,459,1,3287,24,4140,25,Web libraries and frameworks
+restfb,144,0,328,4,1404,20,1876,24,Non-web libraries and frameworks
+spring-data-rest,338,0,455,2,1940,10,2733,12,Non-web libraries and frameworks
+platform_frameworks_support,2473,6,1587,8,16315,104,20375,118,Non-web libraries and frameworks
+openwayback,1073,0,695,22,4244,46,6012,68,Software tools
+soot,5339,0,4059,20,36959,14,46357,34,Non-web libraries and frameworks
+OG-Platform,5996,16,14596,569,125442,409,146034,994,Software tools
+grails-core,1257,1,895,31,8057,67,10209,99,Web libraries and frameworks
+mapdb,1146,2,467,1,4791,51,6404,54,System Software
+Openfire,1715,2,1913,7,18118,34,21746,43,System Software
+jclouds,5238,2,6172,18,34807,125,46217,145,Software tools
+EhViewer,1113,1,599,1,5265,14,6977,16,Application
+GWTP,222,0,662,18,2797,29,3681,47,Web libraries and frameworks
+mongo-java-driver,201,1,1024,2,8704,44,9929,47,Non-web libraries and frameworks
+hudson,1443,68,2219,42,12800,389,16462,499,Software tools
+gwt,4335,21,10543,104,79871,451,94749,576,Software tools
+cursor-utils,8,0,20,0,204,10,232,10,Non-web libraries and frameworks
+Java-Thread-Affinity,40,0,44,1,369,4,453,5,Application
+gnucash-android,352,5,127,0,1112,0,1591,5,Application
+subsonic,388,0,281,0,2993,5,3662,5,Application
+Subsonic,388,0,281,0,2993,5,3662,5,Non-web libraries and frameworks
+AxonFramework,75,0,1508,2,6983,22,8566,24,Non-web libraries and frameworks
+liquibase,381,1,1192,6,8317,73,9890,80,System Software
+operaprestodriver,1021,0,903,0,19706,14,21630,14,Non-web libraries and frameworks
+playn,1120,0,557,2,6478,30,8155,32,Non-web libraries and frameworks
+nifty-gui,284,2,1131,30,8634,18,10049,50,Non-web libraries and frameworks
+frames,19,0,108,1,521,17,648,18,Non-web libraries and frameworks
+restlet-framework-java,1037,2,2305,2,15710,14,19052,18,Non-web libraries and frameworks
+asterisk-java,388,0,597,6,5607,43,6592,49,Non-web libraries and frameworks
+calabash-android,1551,6,768,46,6955,142,9274,194,Software tools
+ps3mediaserver,341,89,251,5,2875,111,3467,205,System Software
+slf4j,384,6,234,0,1594,11,2212,17,Software tools
+jnr-ffi,562,0,666,1,3387,16,4615,17,Non-web libraries and frameworks
+xwiki-platform,3184,16,4385,164,27632,461,35201,641,Non-web libraries and frameworks
+fanfoudroid,472,1,231,1,1988,27,2691,29,Application
+Resteasy,2943,0,4144,39,21143,17,28230,56,Non-web libraries and frameworks
+curator-apache,547,0,1121,4,8304,16,9972,20,Non-web libraries and frameworks
+android-utils,70,1,11,1,132,2,213,4,Non-web libraries and frameworks
+JSONassert,7,0,28,0,256,4,291,4,Non-web libraries and frameworks
+crawljax,97,0,274,1,1833,3,2204,4,Application
+avaje-ebeanorm,1492,0,1849,0,13709,4,17050,4,Non-web libraries and frameworks
+legacy-jclouds,5638,0,6584,66,35296,40,47518,106,Web libraries and frameworks
+openmrs-core,2135,258,1503,32,15624,738,19262,1028,Web libraries and frameworks
+vaadin,3105,154,5213,46,31028,414,39346,614,Non-web libraries and frameworks
+opennlp,410,1,896,7,4228,115,5534,123,Non-web libraries and frameworks
+github-plugin,48,0,71,1,385,10,504,11,Application
+rest-assured,126,3,332,0,3742,8,4200,11,Web libraries and frameworks
+igv,2579,0,1386,7,11798,4,15763,11,Application
+xtext,80033,28,23259,104,226988,424,330280,556,Non-web libraries and frameworks
+tomcat70,4790,95,2685,59,23351,416,30826,570,System Software
+ngrinder,313,0,469,0,3095,14,3877,14,Application
+rstudio,1358,0,2529,2,18477,5,22364,7,Application
+Ektorp,282,0,295,2,2206,5,2783,7,Non-web libraries and frameworks
+quickfixj,295,0,381,0,3290,7,3966,7,Non-web libraries and frameworks
+antlr4,1179,5,606,1,5830,25,7615,31,Software tools
+sling,3559,57,4571,49,29356,124,37486,230,Web libraries and frameworks
+javassist,1284,0,857,0,5289,10,7430,10,Software tools
+bigbluebutton,3336,1,1132,0,7762,9,12230,10,Application
+geotools,28711,50,11381,77,102842,431,142934,558,Non-web libraries and frameworks
+tomcat,4403,8,3152,17,27635,97,35190,122,System Software
+UniversalMediaServer,1037,100,435,2,4632,155,6104,257,Application
+wicket,1050,1,4052,18,20298,33,25400,52,Web libraries and frameworks
+proctor,66,5,153,0,1000,8,1219,13,Non-web libraries and frameworks
+i2p.i2p,2239,8,1867,13,15395,253,19501,274,System Software
+selenium,791,6,1563,9,9457,7,11811,22,Non-web libraries and frameworks
+citrus,1110,0,2448,0,14315,22,17873,22,Web libraries and frameworks
+WorldEdit,655,5,707,46,4809,115,6171,166,Application
+browsermob-proxy,1333,0,566,4,5598,46,7497,50,Software tools
+liferay-plugins,4078,0,2054,53,35944,301,42076,354,Application
+PayPal-Java-SDK,285,0,282,0,2516,24,3083,24,Non-web libraries and frameworks
+vraptor,160,0,897,1,3734,11,4791,12,Web libraries and frameworks
+sshj,166,0,299,0,1846,9,2311,9,Non-web libraries and frameworks
+capsule,39,0,27,0,763,9,829,9,Software tools
+picard,1689,1,580,0,3041,5,5310,6,System Software
+gs-core,1511,0,428,1,4893,5,6832,6,Non-web libraries and frameworks
+slice,17,0,64,1,789,2,870,3,Non-web libraries and frameworks
+cube-sdk,167,0,174,0,1389,3,1730,3,Non-web libraries and frameworks
+Minecraft-Server-Mod,305,0,106,0,1503,3,1914,3,System Software
+btrace,234,0,396,1,2878,2,3508,3,System Software
+AntennaPod,693,0,416,0,3847,3,4956,3,Application
+mycollab,1479,0,3130,0,32255,3,36864,3,Non-web libraries and frameworks
+elasticsearch-analysis-icu,7,0,19,3,69,0,95,3,Application
+ImageViewEx,14,0,21,1,167,2,202,3,Non-web libraries and frameworks
+ormlite-android,20,0,33,0,254,3,307,3,Non-web libraries and frameworks
+jmxtrans,113,0,147,0,834,3,1094,3,Application
+transdroid,385,2,261,0,1833,1,2479,3,Application
+spring-social-facebook,631,0,277,0,1770,3,2678,3,Non-web libraries and frameworks
+structr,1450,0,1168,2,7793,1,10411,3,Non-web libraries and frameworks
+tika,1026,59,917,3,5433,30,7376,92,Non-web libraries and frameworks
+gridgain,1829,15,5254,6,45904,88,52987,109,Non-web libraries and frameworks
+incubator-brooklyn,4754,62,3230,48,23759,492,31743,602,System Software
+spring-roo,615,1,876,1,6124,55,7615,57,Non-web libraries and frameworks
+aws-sdk-java,774,16,10425,165,89345,115,100544,296,Non-web libraries and frameworks
+ceylon-compiler,2951,9,1609,62,11653,31,16213,102,System Software
+eureka,213,0,226,2,1749,26,2188,28,Software tools
+erlide,1678,0,1477,1,10893,13,14048,14,Software tools
+optiq,1702,1,1633,0,12842,13,16177,14,System Software
+soapui,2669,1,3163,8,22208,35,28040,44,Non-web libraries and frameworks
+xtreemfs,1664,0,1341,2,20333,9,23338,11,System Software
+hbase,7267,15,6235,18,74864,349,88366,382,System Software
+voltdb,12973,20,4268,7,38744,137,55985,164,Software tools
+Multiverse-Core,43,0,156,8,1255,35,1454,43,Non-web libraries and frameworks
+wro4j,167,1,590,1,4542,6,5299,8,Web libraries and frameworks
+rest-driver,49,0,163,2,941,6,1153,8,Non-web libraries and frameworks
+bytecode-viewer,1371,16,454,7,4124,35,5949,58,Software tools
+cas,257,0,759,28,3918,35,4934,63,Web libraries and frameworks
+wonder,6845,36,4335,51,32990,235,44170,322,Non-web libraries and frameworks
+selenide,123,2,139,1,1021,23,1283,26,Non-web libraries and frameworks
+XChange,751,0,2363,1,11421,12,14535,13,Non-web libraries and frameworks
+pig,2111,26,2467,51,17696,71,22274,148,Software tools
+WorldGuard,270,1,347,3,2236,32,2853,36,Application
+accumulo,3790,1,5218,62,38043,207,47051,270,System Software
+jmonkeyengine,4835,8,2340,28,22202,65,29377,101,Software tools
+jdom,206,0,393,9,4654,26,5253,35,Non-web libraries and frameworks
+github-api,214,0,122,4,1174,26,1510,30,Non-web libraries and frameworks
+concourse,2387,0,2754,0,25886,10,31027,10,System Software
+jzmq,58,4,49,0,471,6,578,10,Software tools
+RichTextFX,26,0,70,0,706,5,802,5,Non-web libraries and frameworks
+nutch,685,2,506,2,2874,1,4065,5,Application
+sqlite-jdbc,190,0,101,0,1463,5,1754,5,Non-web libraries and frameworks
+stratosphere,1333,15,2367,0,13377,32,17077,47,Non-web libraries and frameworks
+pad,1215,1,334,4,4431,83,5980,88,Software tools
+mondrian,1856,1,1637,6,16807,37,20300,44,Application
+osmosis,175,0,846,5,4977,36,5998,41,System Software
+fab,13,0,23,1,226,11,262,12,Non-web libraries and frameworks
+testng,565,0,1256,2,6167,29,7988,31,Non-web libraries and frameworks
+effectivejava,110,0,534,8,4610,32,5254,40,Software tools
+rest.li,1017,0,2133,6,14533,41,17683,47,Non-web libraries and frameworks
+BoofCV,6610,0,3039,0,15934,7,25583,7,Non-web libraries and frameworks
+elasticsearch,5410,10,5990,33,41346,66,52746,109,Software tools
+sonarqube,4858,149,4744,124,34493,275,44095,548,Application
+lenskit,298,0,886,4,5096,48,6280,52,Application
+ccnx,2437,0,658,4,5520,50,8615,54,Non-web libraries and frameworks
+modeshape,5712,7,2792,3,26691,23,35195,33,System Software
+zeno,120,0,274,0,1914,22,2308,22,Non-web libraries and frameworks
+geppetto,4866,0,1349,1,11951,10,18166,11,Software tools
+OpenAtlas,433,3,156,2,1065,6,1654,11,System Software
+ofbiz,4041,1,1940,5,16789,177,22770,183,Web libraries and frameworks
+camel,5967,33,14039,41,82837,440,102843,514,Non-web libraries and frameworks
+kite,627,1,988,0,7024,12,8639,13,Non-web libraries and frameworks
+log4j,825,24,420,5,2964,62,4209,91,Non-web libraries and frameworks
+itextpdf,4578,13,925,28,9431,49,14934,90,Non-web libraries and frameworks
+struts,2553,2,2224,11,15383,14,20160,27,Web libraries and frameworks
+activemq,6014,0,4596,6,38061,25,48671,31,Application
+griffon,459,0,1080,3,7043,30,8582,33,Non-web libraries and frameworks
+bonecp,123,0,102,0,2099,37,2324,37,Non-web libraries and frameworks
+jena,9200,32,5662,17,48634,159,63496,208,Non-web libraries and frameworks
+jbehave-core,260,6,1036,4,4868,26,6164,36,Non-web libraries and frameworks
+Pydev,5628,0,3103,7,28697,11,37428,18,Application
+mixpanel-android,184,0,229,1,1634,13,2047,14,Non-web libraries and frameworks
+Lealone,1922,0,790,0,9962,12,12674,12,Application
+config,91,0,165,0,1402,8,1658,8,Non-web libraries and frameworks
+twilio-java,166,0,253,0,1972,6,2391,6,Non-web libraries and frameworks
+thucydides,976,0,1221,0,8142,6,10339,6,Software tools
+orbit,210,0,475,0,1773,4,2458,4,Non-web libraries and frameworks
+HugeCollections,346,0,298,0,2106,4,2750,4,Non-web libraries and frameworks
+errai,1309,0,3387,2,19436,2,24132,4,Web libraries and frameworks
+idea-php-laravel-plugin,22,0,72,0,369,2,463,2,Web libraries and frameworks
+signpost,48,0,64,0,364,2,476,2,Non-web libraries and frameworks
+datacube,108,0,125,1,480,1,713,2,System Software
+hbc,90,0,89,0,661,2,840,2,Non-web libraries and frameworks
+stream-lib,86,0,99,0,719,2,904,2,Non-web libraries and frameworks
+android-maps-utils,55,0,130,2,948,0,1133,2,Non-web libraries and frameworks
+wigle-wifi-wardriving,186,0,110,2,842,0,1138,2,Application
+platform_packages_apps_contacts,325,0,267,1,2207,1,2799,2,Non-web libraries and frameworks
+brut.apktool,477,0,398,0,2815,2,3690,2,Application
+nodeclipse-1,1727,0,2907,1,13151,1,17785,2,Application
+GeoIP2-java,13,0,44,0,209,2,266,2,Non-web libraries and frameworks
+analytics-android,288,0,138,0,1402,2,1828,2,Non-web libraries and frameworks
+nginx-clojure,1443,1,394,0,3187,1,5024,2,Non-web libraries and frameworks
+Kylin,939,0,735,0,5939,2,7613,2,Software tools
+incubator-kylin,1014,0,762,0,6239,2,8015,2,Software tools
+BroadleafCommerce,4956,38,2436,65,18598,346,25990,449,Non-web libraries and frameworks
+avro,658,16,1043,4,6425,41,8126,61,Software tools
+isis,2389,39,6285,221,31859,212,40533,472,Non-web libraries and frameworks
+zanata-server,1210,1,1899,0,12716,20,15825,21,Application
+flume-release,1065,17,894,3,6313,14,8272,34,Software tools
+hydra,986,0,1144,6,7165,11,9295,17,Software tools
+java-object-diff,11,0,217,9,1104,6,1332,15,Non-web libraries and frameworks
+mct,1208,0,1569,0,11896,15,14673,15,Application
+hibernate-search,819,0,1883,7,10333,21,13035,28,Software tools
+denominator,508,0,471,0,2034,13,3013,13,Software tools
+jackson-databind,2391,6,2318,8,9785,170,14494,184,Non-web libraries and frameworks
+DataflowJavaSDK,882,1,1702,1,9110,9,11694,11,Software tools
+HotswapAgent,1227,0,621,5,4798,6,6646,11,Software tools
+mule,5812,6,7551,178,43989,309,57352,493,Application
+FML,387,0,368,3,2265,26,3020,29,Application
+autopsy,649,0,1053,2,7885,36,9587,38,Application
+marytts,3419,0,1218,6,10039,41,14676,47,Non-web libraries and frameworks
+mockito,335,0,1190,11,4480,14,6005,25,Non-web libraries and frameworks
+aws-sdk-android,599,3,3126,32,25964,177,29689,212,Non-web libraries and frameworks
+DSpace,2235,19,1814,22,13092,46,17141,87,System Software
+android-database-sqlcipher,85,7,53,0,595,28,733,35,Non-web libraries and frameworks
+gerrit-trigger-plugin,101,0,213,0,1815,14,2129,14,Application
+poi,6675,71,3458,90,31342,285,41475,446,Application
+owlapi,1551,4,2225,32,17993,102,21769,138,Non-web libraries and frameworks
+fred,4366,7,1606,10,15585,51,21557,68,Application
+spring-webflow,130,2,915,9,6463,8,7508,19,Software tools
+lucene-solr,13093,23,8104,20,54944,74,76141,117,Non-web libraries and frameworks
+platform_packages_apps_email,1281,26,403,0,3164,16,4848,42,Non-web libraries and frameworks
+spring-data-redis,133,0,431,5,6574,15,7138,20,Non-web libraries and frameworks
+Chronicle-Map,625,0,519,4,3516,11,4660,15,Application
+bndtools,529,2,583,0,3563,8,4675,10,Application
+GeoGig,792,0,1050,0,6652,10,8494,10,Application
+material-dialogs,128,0,43,0,552,5,723,5,Non-web libraries and frameworks
+sql2o,141,0,215,0,966,5,1322,5,Non-web libraries and frameworks
+weave,82,0,352,0,1965,5,2399,5,Software tools
+SIREn,428,0,584,5,2547,0,3559,5,Non-web libraries and frameworks
+spring-data-solr,145,0,410,0,3108,5,3663,5,Non-web libraries and frameworks
+OpenGrok,511,0,384,0,3056,5,3951,5,Software tools
+gwt-maven-plugin,25,1,151,1,496,3,672,5,Application
+pentaho-platform,2754,1,2252,30,19427,100,24433,131,Non-web libraries and frameworks
+jetty.project,2366,11,3304,15,22724,75,28394,101,Application
+infinispan,5774,23,6844,34,43792,146,56410,203,Software tools
+camunda-bpm-platform,7199,29,3656,8,30334,96,41189,133,Non-web libraries and frameworks
+Mekanism,2958,1,1218,2,8465,36,12641,39,Application
+workflow-plugin,236,0,483,1,2166,20,2885,21,Application
+flink,2651,7,4874,29,24018,73,31543,109,Non-web libraries and frameworks
+google-http-java-client,437,2,398,4,2262,18,3097,24,Web libraries and frameworks
+jbpm,1576,0,1942,5,17949,19,21467,24,Application
+robovm,14482,101,14001,60,105909,672,134392,833,Software tools
+nd4j,1352,33,656,2,12107,32,14115,67,Non-web libraries and frameworks
+fixflow,5139,0,1166,0,10767,11,17072,11,Software tools
+closure-compiler,2125,1,1583,0,23166,10,26874,11,Software tools
+astyanax,445,1,704,10,6623,69,7772,80,Web libraries and frameworks
+spring-amqp,212,1,460,1,3398,12,4070,14,Software tools
+hadoop,13768,169,10210,25,81986,270,105964,464,Software tools
+openstack-java-sdk,84,0,582,3,2355,17,3021,20,Non-web libraries and frameworks
+rabbitmq-java-client,247,0,360,0,2612,12,3219,12,Web libraries and frameworks
+AndroidCaldavSyncAdapater,287,0,353,0,1780,12,2420,12,Non-web libraries and frameworks
+UpdateChecker,27,0,14,0,85,9,126,9,Non-web libraries and frameworks
+governator,115,0,463,2,1635,7,2213,9,Web libraries and frameworks
+TestFX,179,0,160,0,1407,6,1746,6,Non-web libraries and frameworks
+androidclient,528,3,245,3,2183,0,2956,6,Non-web libraries and frameworks
+semantic-versioning,29,1,50,0,395,2,474,3,Software tools
+infovore,346,0,230,1,907,2,1483,3,Non-web libraries and frameworks
+ehcache3,444,0,726,0,5304,3,6474,3,Non-web libraries and frameworks
+dcm4che,718,0,530,0,6085,3,7333,3,Application
+hibernate-validator,381,0,1511,1,5443,2,7335,3,Non-web libraries and frameworks
+Web-Karma,991,0,868,3,5675,0,7534,3,Application
+cascading,980,1,1077,0,8690,2,10747,3,Non-web libraries and frameworks
+fitnesse,759,0,1333,2,8984,1,11076,3,Non-web libraries and frameworks
+PassAndroid,152,0,162,0,671,3,985,3,Application
+ioke,787,0,356,0,3740,3,4883,3,System Software
+SeriesGuide,1465,3,533,0,2888,0,4886,3,Application
+cdk,225,0,600,2,3781,44,4606,46,Non-web libraries and frameworks
+parquet-mr,464,1,971,10,6256,78,7691,89,Software tools
+artemis-odb,403,0,501,5,2180,63,3084,68,Non-web libraries and frameworks
+ribbon,378,4,362,3,2162,24,2902,31,Web libraries and frameworks
+asciidoctorj,128,0,124,0,1044,25,1296,25,Non-web libraries and frameworks
+pentaho-kettle,7320,58,3285,22,46395,173,57000,253,Software tools
+Activiti,6073,0,2961,4,19325,35,28359,39,Software tools
+jOOQ,1569,1,1286,9,21038,224,23893,234,Software tools
+eucalyptus,2040,9,3175,9,25559,40,30774,58,System Software
+jcommon,71,0,588,3,3676,28,4335,31,Non-web libraries and frameworks
+g4studio,540,0,624,4,4914,27,6078,31,Application
+ambari,3029,0,2928,10,21608,4,27565,14,Software tools
+blueprints,419,0,377,0,3145,14,3941,14,Non-web libraries and frameworks
+XposedBridge,164,1,96,1,1381,5,1641,7,Non-web libraries and frameworks
+aws-toolkit-eclipse,700,4,1090,0,6751,3,8541,7,Application
+opensearchserver,1175,2,1328,2,9900,3,12403,7,Application
+CloudStack-archive,11217,1,5689,3,54271,54,71177,58,System Software
+JGroups,4224,29,1258,18,11833,26,17315,73,Non-web libraries and frameworks
+unfolding,1016,0,383,1,1720,21,3119,22,Non-web libraries and frameworks
+choco3,1810,0,837,2,6817,9,9464,11,Non-web libraries and frameworks
+bitcoinj,1178,1,861,1,10908,30,12947,32,Non-web libraries and frameworks
+CommandBook,95,1,139,0,649,15,883,16,System Software
+hector,294,0,489,3,3929,13,4712,16,Non-web libraries and frameworks
+spring-social,28,0,242,0,1359,8,1629,8,Non-web libraries and frameworks
+arquillian-core,112,1,669,0,2714,7,3495,8,Software tools
+less4j,201,0,514,3,3990,5,4705,8,Software tools
+gwt-bootstrap,309,0,403,0,2411,8,3123,8,Web libraries and frameworks
+ScreenSlicer,197,8,105,0,817,0,1119,8,Application
+CircularReveal,45,0,33,0,218,4,296,4,Application
+jackson-dataformat-xml,324,0,238,0,850,4,1412,4,Non-web libraries and frameworks
+vlcj,217,0,457,1,2757,3,3431,4,Non-web libraries and frameworks
+Java-Lang,234,0,306,0,3427,4,3967,4,Non-web libraries and frameworks
+openiot,4529,0,1181,1,9056,3,14766,4,System Software
+morphia,664,0,664,1,2311,3,3639,4,Non-web libraries and frameworks
+vk-android-sdk,752,2,141,0,1017,2,1910,4,Non-web libraries and frameworks
+jackson-annotations,13,0,15,1,99,3,127,4,Non-web libraries and frameworks
+groovy-core,1863,1,1842,3,18602,595,22307,599,Software tools
+incubator-groovy,1871,1,1851,4,18670,602,22392,607,Non-web libraries and frameworks
+maven,441,9,1036,71,7124,119,8601,199,Software tools
+jeromq,295,8,372,0,1803,13,2470,21,Non-web libraries and frameworks
+onos,2904,7,3120,11,18199,20,24223,38,System Software
+jackrabbit-oak,2206,1,2820,1,23562,15,28588,17,System Software
+UltimateAndroid,3795,0,3898,5,26462,81,34155,86,Non-web libraries and frameworks
+ReactFX,78,0,352,47,2062,9,2492,56,Non-web libraries and frameworks
+caelum-stella,766,0,557,9,4086,13,5409,22,Web libraries and frameworks
+Bukkit,253,18,665,15,5016,421,5934,454,Non-web libraries and frameworks
+h-store,10445,10,2752,6,27518,38,40715,54,System Software
+MinecraftForge,1031,8,799,12,4385,53,6215,73,Software tools
+RustDT,1245,0,837,4,4971,10,7053,14,Software tools
+immutables,305,0,633,0,2643,14,3581,14,Non-web libraries and frameworks
+gatk,5921,1,1861,0,8949,23,16731,24,Non-web libraries and frameworks
+BungeeCord,71,0,237,3,1063,22,1371,25,System Software
+core,1306,0,4332,5,14549,15,20187,20,Web libraries and frameworks
+goclipse,1365,0,893,4,5342,11,7600,15,Application
+hibernate-ogm,379,1,1319,0,7932,9,9630,10,Non-web libraries and frameworks
+java-cas-client,92,1,174,0,957,4,1223,5,Web libraries and frameworks
+ExtrabiomesXL,328,0,254,1,1764,4,2346,5,Software tools
+pi4j,702,0,407,0,2936,5,4045,5,Non-web libraries and frameworks
+httpclient,331,0,628,0,4694,5,5653,5,Web libraries and frameworks
+querydsl,2089,3,2861,0,12926,2,17876,5,Non-web libraries and frameworks
+mage,2198,0,29896,0,105669,5,137763,5,Application
+ols,454,0,531,4,3996,1,4981,5,Application
+antlr3,1412,0,364,0,4114,5,5890,5,Software tools
+webprotege,822,0,2103,7,12059,4,14984,11,Software tools
+eurekastreams,714,0,2786,7,12414,4,15914,11,Web libraries and frameworks
+wildfly,7490,39,7675,21,37244,51,52409,111,System Software
+drools,6748,0,5229,12,46770,39,58747,51,Application
+xmemcached,442,0,358,6,3714,11,4514,17,Non-web libraries and frameworks
+docker-plugin,164,30,81,0,410,5,655,35,Application
+hazelcast,3994,2,5423,8,44357,90,53774,100,Non-web libraries and frameworks
+hive,6495,28,8479,12,68071,96,83045,136,Software tools
+libjitsi,1917,0,821,0,5964,6,8702,6,Non-web libraries and frameworks
+boon,1404,0,972,0,11395,6,13771,6,Software tools
+guacamole-client,65,2,299,4,1447,0,1811,6,Web libraries and frameworks
+egit-github,458,0,317,0,2785,6,3560,6,Non-web libraries and frameworks
+bson4jackson,61,0,60,1,416,5,537,6,Software tools
+Java-Chronicle,170,0,172,0,1377,6,1719,6,Non-web libraries and frameworks
+jsprit,232,2,532,5,3710,36,4474,43,Non-web libraries and frameworks
+undertow,1522,6,1713,4,11515,40,14750,50,System Software
+incubator-calcite,2464,3,2243,2,18926,84,23633,89,Non-web libraries and frameworks
+docx4j,9219,8,2678,12,28251,76,40148,96,Non-web libraries and frameworks
+Twidere-Android,2204,0,1262,0,8290,13,11756,13,Application
+checkstyle,1607,5,1938,24,7467,107,11012,136,Software tools
+voldemort,1715,0,1366,8,14805,26,17886,34,Application
+Tweetin,113,0,99,0,947,21,1159,21,Application
+jdbi,39,0,474,5,2163,16,2676,21,Non-web libraries and frameworks
+tachyon,666,0,1088,0,8682,7,10436,7,Application
+KJFrameForAndroid,117,1,121,0,1081,6,1319,7,Non-web libraries and frameworks
+eclipsefp,1948,0,987,26,6664,10,9599,36,Application
+processing-android,2220,3,161,0,4801,12,7182,15,Non-web libraries and frameworks
+spring-data-neo4j,794,0,993,11,6240,27,8027,38,Non-web libraries and frameworks
+airlift,128,0,688,3,4175,21,4991,24,Non-web libraries and frameworks
+jitsi,3207,3,3064,0,24212,13,30483,16,Application
+appfuse,321,1,480,6,2734,1,3535,8,Web libraries and frameworks
+Rythm,312,0,341,1,2830,7,3483,8,Software tools
+drill,4283,0,3079,2,23491,31,30853,33,Software tools
+repose,405,0,1252,29,5045,6,6702,35,Software tools
+mahout,691,0,1467,44,9453,9,11611,53,Software tools
+BuildCraft,1392,0,1103,0,7263,18,9758,18,Application
+multibit,508,1,302,0,2077,8,2887,9,Application
+uaa,633,0,820,1,5712,8,7165,9,System Software
+Essentials,118,0,411,1,3444,18,3973,19,System Software
+cloudstack,12385,0,5515,7,49797,42,67697,49,Software tools
+idea-php-symfony2-plugin,197,0,631,0,2999,10,3827,10,Application
+phonegap-app-developer,557,3,293,6,2978,44,3828,53,Web libraries and frameworks
+BiomesOPlenty,765,11,618,1,2849,10,4232,22,Application
+box2dlights,202,0,21,0,233,11,456,11,Non-web libraries and frameworks
+giraph,811,0,1538,3,8817,9,11166,12,Software tools
+keycloak,3970,13,1987,3,16397,21,22354,37,Software tools
+jstorm,2340,0,1835,8,12844,19,17019,27,Software tools
+Metamorphosis,602,1,653,3,4533,10,5788,14,Application
+bither-android,578,5,601,2,6159,8,7338,15,Application
+error-prone,252,2,1150,5,4136,8,5538,15,Software tools
+mcMMO,283,0,321,0,2735,50,3339,50,Application
+phonegap-facebook-plugin,600,13,368,9,3489,84,4457,106,Application
+spatial4j,112,4,86,4,801,10,999,18,Non-web libraries and frameworks
+evernote-sdk-android,68,2,101,8,1015,157,1184,167,System Software
+stratio-cassandra,3284,29,3095,8,23352,137,29731,174,Software tools
+astrid,3741,26,1930,10,14397,62,20068,98,Application
+socialize-sdk-android,642,6,997,13,8505,72,10144,91,System Software
+mopub-android-sdk,432,0,564,12,5206,173,6202,185,System Software
+bnd,3070,14,1416,2,9660,58,14146,74,Software tools
+oozie,1685,7,1220,12,10712,18,13617,37,Software tools
+stripe-java,508,4,123,0,1577,111,2208,115,Non-web libraries and frameworks
+ANE-Facebook,422,13,288,4,2380,72,3090,89,System Software
+pinpoint,894,4,2200,19,12710,68,15804,91,Software tools
+vraptor4,171,0,695,0,3295,96,4161,96,Web libraries and frameworks
