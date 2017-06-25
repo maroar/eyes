@@ -76,6 +76,8 @@ label {
             return ; 
         }
 
+        data = inputData;
+
         fields = ["field", "type", "method"];
 
         var filterCategory = inputData[0].category;
@@ -86,8 +88,8 @@ label {
             }
         });
 
-        var projects = [];
-        var v = [[], [], []];
+        projects = [];
+        v = [[], [], []];
         data.forEach(function(d, i) {
             d.id = i;
             d.field = +d.field;
