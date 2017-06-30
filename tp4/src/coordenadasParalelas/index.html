@@ -129,8 +129,9 @@ svg {
     <script src="../vendors/js/ie10-viewport-bug-workaround.js"></script>
     
     <!-- 
-    reference:
-    http://mbostock.github.io/d3/talk/20111116/iris-parallel.html
+    Removed:
+    citrus
+    poi
     -->
 
     <script>
@@ -247,7 +248,7 @@ svg {
       });
 
       function scatterGen(place, attr1, attr2) {
-        var margin = {top: 50, right: 50, bottom: 30, left: 100},
+        var margin = {top: 50, right: 50, bottom: 40, left: 100},
           width = (d3.select(place).node().offsetWidth * .9) - margin.left - margin.right,
           height = width - margin.top - margin.bottom;
 
@@ -302,6 +303,16 @@ svg {
             .attr("cx", function(d, i) { return sx(coord1[i]); })
             .attr("cy", function(d, i) { return sy(coord2[i]); })
             .style("fill", function(d, i) { return color(data.category[i]); });
+
+        svg.append("text")
+            .attr("text-anchor", "middle")  
+            .attr("transform", "translate(" + (-50) +","+(height/2)+")rotate(-90)")  
+            .text(traits[attr2]);
+
+        svg.append("text")
+            .attr("text-anchor", "middle")  
+            .attr("transform", "translate("+ (width/2) +","+ (height+30) +")") 
+            .text(traits[attr1]);
       }
     </script>
   </body>

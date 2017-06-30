@@ -119,14 +119,10 @@ svg {
     <script src="../vendors/js/ie10-viewport-bug-workaround.js"></script>
     
     <!-- 
-    reference:
-    http://mbostock.github.io/d3/talk/20111116/iris-parallel.html
-
 Eliminados
     CrossBow,100,0,Web libraries and frameworks
     citrus,68.1818181818,0,Web libraries and frameworks
     poi,42.8251121076,0,Application
-
     -->
 
     <script>
@@ -146,23 +142,21 @@ Eliminados
           names.push(d.name);
           d.avgAll = +d.avgAll;
           if (d.avgAll <= 0) { alert(d.name);}
-          //ys.push(Math.log(d.avgAll));
           ys.push(d.avgAll);
           d.id = i;
           ids.push(i);
           d.rm = +d.rm;
         });
 
-        margin = {top: 20, right: 50, bottom: 30, left: 80};
+        margin = {top: 35, right: 80, bottom: 30, left: 80};
         width = (d3.select("#mainCanvas").node().offsetWidth) - margin.left - margin.right;
         height = (window.innerHeight/1.5) - margin.top - margin.bottom;
 
         x = d3.scaleLinear()
           .domain(d3.extent(ids))
-          .range([0, width]);//x = d3.scaleBand()
-          //.rangeRound([0, width]);
+          .range([0, width]);
 
-        y = d3.scaleLog()//y = d3.scaleLinear()//
+        y = d3.scaleLog()
           .base(2)
           .domain(d3.extent(ys))
           .range([height, 0]);
@@ -189,13 +183,13 @@ Eliminados
           .call(yAxis);
 
         svg.append("text")
-            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
-            .attr("transform", "translate(" + (-50) +","+(height/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
+            .attr("text-anchor", "middle")  
+            .attr("transform", "translate(" + (-50) +","+(height/2)+")rotate(-90)")  
             .text("Attribute Mean (log scale)");
 
         svg.append("text")
-            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
-            .attr("transform", "translate("+ (width/2) +","+ (height+20) +")")  // centre below axis
+            .attr("text-anchor", "middle")  
+            .attr("transform", "translate("+ (width/2) +","+ (height+20) +")") 
             .text("Projects");
 
         circles = svg.append("g").selectAll("circle")
@@ -213,12 +207,22 @@ Eliminados
 
       });
 
-      function handleMouseOver(d, i) {  // Add interactivity
+      function handleMouseOver(d, i) {  
         d3.select("#c" + i).attr("fill", function(d) { return color(d.category); }).attr("r", radius*2);
+
+        svg.append("text")
+            .attr("id", "t-" + d.id)
+            .attr("x", function() { return x(d.id); }) 
+            .attr("y", function() { return y(d.avgAll) - 15; })
+          .text(function() {
+            return d.name; 
+          });
       }
 
       function handleMouseOut(d, i) {
         d3.select("#c" + i).transition().delay(200).attr("r", function() { return (d.rm/100)*radius; }).on("end", function(a) { this.setAttribute("fill", "none") });
+
+        d3.select("#t-" + d.id).remove();
       }
 
     </script>
