@@ -13,9 +13,20 @@
 
     <!-- Custom styles for this template -->
     <link href="../vendors/css/dashboard.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./assets/css/tooltip.css"/>
     <style type="text/css">
 label {
   display: block;
+}
+
+.legend2 {
+  font-size: 18px;
+  font-style: oblique;
+}
+
+.legend2 line {
+  stroke-width: 2px;
 }
     </style>
   </head>
@@ -51,10 +62,20 @@ label {
         </nav>
 
         <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-        <form>
-            <label><input type="radio" name="mode" value="grouped" checked> Absolute </label>
-            <label><input type="radio" name="mode" value="stacked"> Relative </label>
-          </form>
+          <div class="row">
+              <div class="col-md-12">
+                <input type="radio" data-target="0" name="mode" value="grouped" checked> Absolute
+                <input type="radio" data-target="1" name="mode" value="stacked"> Relative
+              </div>
+              <div class="col-md-12">
+                <input type="radio" data-target="0" name="category" value="grouped" checked> Applicaton
+                <input type="radio" data-target="1" name="category" value="stacked"> Non-web libraries and frameworks
+                <input type="radio" data-target="2" name="category" value="stacked"> Software tools
+                <input type="radio" data-target="3" name="category" value="stacked"> System Software
+                <input type="radio" data-target="4" name="category" value="stacked"> Web libraries and frameworks
+              </div>
+            <!-- </div> -->
+          </div>          
           <div class="row">
             <div class="col-sm-12" id="mbars"></div>
           </div>
@@ -69,94 +90,10 @@ label {
     <script src="../vendors/js/bootstrap.min.js"></script>
     <script src="../vendors/js/ie10-viewport-bug-workaround.js"></script>
 
-    <script>
-      d3.csv("./data/dataVisualization.csv", function(error, inputData) {
-        if (error) { 
-            alert("problem reading data!");
-            return ; 
-        }
+    <script src="assets/js/initialize.js"></script>
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/tooltip.js"></script>
+    <script src="assets/js/visualization.js"></script>
 
-        fields = ["field", "type", "method"];
-
-        var filterCategory = inputData[0].category;
-        data = [];
-        inputData.forEach(function(d) {
-            if (d.category == filterCategory) {
-                data.push(d);
-            }
-        });
-
-        var projects = [];
-        var v = [[], [], []];
-        data.forEach(function(d, i) {
-            d.id = i;
-            d.field = +d.field;
-            d.method = +d.method;
-            d.type = +d.type;
-            projects.push(d.id);
-            v[0].push(d.field);
-            v[1].push(d.type);
-            v[2].push(d.method);
-        });
-
-        absolute = true;
-        buildGraph(projects, v);
-      });
-
-      function buildGraph(xz, yz) {
-        var n = 3;
-        var y01z = d3.stack().keys(d3.range(n))(d3.transpose(yz));
-        var yMax = d3.max(yz, function(y) { return d3.max(y); });
-        var y1Max = d3.max(y01z, function(y) { return d3.max(y, function(d) { return d[1]; }); });
-
-        var margin = {top: 40, right: 10, bottom: 20, left: 10},
-            width = (d3.select("#mbars").node().offsetWidth*.9) - margin.left - margin.right,
-            height = (window.innerHeight * 0.8) - margin.top - margin.bottom;
-
-        var svg = d3.select("#mbars").append("svg")
-                    .attr("width", width + margin.left + margin.right)
-                    .attr("height", height + margin.bottom + margin.top);
-
-        var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-        var x = d3.scaleBand()
-            .domain(xz)
-            .rangeRound([0, width])
-            .padding(0.08);
-
-        var y = d3.scaleLinear()
-            .domain([0, y1Max])
-            .range([height, 0]);
-
-        var color = d3.scaleOrdinal()
-            .domain(d3.range(n))
-            .range(d3.schemeCategory10);
-
-        var series = g.selectAll(".series")
-          .data(y01z)
-          .enter().append("g")
-            .attr("fill", function(d, i) { return color(i); });
-
-        var rect = series.selectAll("rect")
-          .data(function(d) { return d; })
-          .enter().append("rect")
-            .attr("x", function(d, i) { return x(i); })
-            .attr("y", height)
-            .attr("width", x.bandwidth())
-            .attr("height", 0);
-
-        rect.transition()
-            .delay(function(d, i) { return i * 10; })
-            .attr("y", function(d) { return y(d[1]); })
-            .attr("height", function(d) { return y(d[0]) - y(d[1]); });
-
-        g.append("g")
-            .attr("class", "axis axis--x")
-            .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(x)
-                .tickSize(0)
-                .tickPadding(6)).selectAll("text").remove();;
-      }
-    </script>
   </body>
 </html>
