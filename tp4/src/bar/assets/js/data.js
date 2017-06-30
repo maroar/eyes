@@ -23,7 +23,7 @@ function initializeCategories(){
 }
 
 function getData(){
-  name = $("input[name='category']:checked").attr("data-target");
+  name = $(".activeOptionCategory").attr("data-target");
   if(name != filterData){
     filterData = name;
     var filterCategory = categories[filterData];
@@ -54,7 +54,7 @@ function getData(){
 }
 
 function getTypeChart(){
-  typeChart = $("input[name='mode']:checked").attr("data-target");
+  typeChart = $(".activeOptionChart").attr("data-target");
 }
 
 function calculatePercentage(d){

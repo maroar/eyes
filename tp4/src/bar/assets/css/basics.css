@@ -1,4 +1,21 @@
-#vizualization{
-  width: 100%;
-  position: relative;
+label {
+  display: block;
+}
+
+.legend2 {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.activeOptionCategory {
+  font-style: oblique;
+}
+
+.legend3 {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.activeOptionChart {
+  font-style: oblique;
 }

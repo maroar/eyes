@@ -14,21 +14,8 @@
     <!-- Custom styles for this template -->
     <link href="../vendors/css/dashboard.css" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="./assets/css/basic.css"/>
     <link rel="stylesheet" type="text/css" href="./assets/css/tooltip.css"/>
-    <style type="text/css">
-label {
-  display: block;
-}
-
-.legend2 {
-  font-size: 18px;
-  font-style: oblique;
-}
-
-.legend2 line {
-  stroke-width: 2px;
-}
-    </style>
   </head>
 
   <body>
@@ -62,20 +49,8 @@ label {
         </nav>
 
         <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-          <div class="row">
-              <div class="col-md-12">
-                <input type="radio" data-target="0" name="mode" value="grouped" checked> Absolute
-                <input type="radio" data-target="1" name="mode" value="stacked"> Relative
-              </div>
-              <div class="col-md-12">
-                <input type="radio" data-target="0" name="category" value="grouped" checked> Applicaton
-                <input type="radio" data-target="1" name="category" value="stacked"> Non-web libraries and frameworks
-                <input type="radio" data-target="2" name="category" value="stacked"> Software tools
-                <input type="radio" data-target="3" name="category" value="stacked"> System Software
-                <input type="radio" data-target="4" name="category" value="stacked"> Web libraries and frameworks
-              </div>
-            <!-- </div> -->
-          </div>          
+          <div id="filterChart" class="row"> </div>
+          <div id="filterData" class="row"> </div>
           <div class="row">
             <div class="col-sm-12" id="mbars"></div>
           </div>
