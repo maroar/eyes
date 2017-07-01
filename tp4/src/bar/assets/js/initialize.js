@@ -15,12 +15,5 @@ var color = d3.scaleOrdinal()
     .domain(d3.range(number_colors))
     .range(d3.schemeCategory10);
 
-// var xToolTip = d3.scaleLinear()
-//   .range([0, widthToolTip]);
-
-// var yToolTip = d3.scaleBand()
-//   .rangeRound([0, heightToolTip])
-//   .padding(0.1);
-
 var xAxis;
 var yAxis;

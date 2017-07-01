@@ -28,13 +28,14 @@ var yToolTip = d3.scaleBand()
   .rangeRound([0, heightToolTip])
   .padding(0.1);
 
-var xAxisToolTip = d3.axisBottom(xToolTip).ticks(3);
+var xAxisToolTip;
 var yAxisToolTip = d3.axisLeft(yToolTip).tickSize(0).tickPadding(6);
 
 function drawChartTooltip(top, left, project){
 
   if(typeChart == 0){
     xToolTip.domain([0, max(project)]).nice(3);
+    xAxisToolTip = d3.axisBottom(xToolTip).ticks(3);
   }else{
     xToolTip.domain([0, 1]).nice(3);
     xAxisToolTip.tickFormat(d3.format(".0%"));
@@ -93,17 +94,6 @@ function min(project){
   metrics[2] = +project["type"];
   return d3.min(metrics);
 }
-
-// function formatScales(d){
-//   if(typeChart == 0){
-//     return xToolTip(Math.min(0, barSelected[d]));
-//   }else{
-//     var total = barSelected["field"] + barSelected["method"] + barSelected["type"];
-//     var perc = ((barSelected[d] / total));
-//     return xToolTip(Math.min(0, perc));
-//     // return perc;
-//   }
-// }
 
 function formatWidth(d){
   if(typeChart == 0){

@@ -102,54 +102,9 @@ function buildGraph(d) {
   }
 
   svg.append("text")
-      .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
-      .attr("transform", "translate("+ (width/2) +","+ (height+60) +")")  // centre below axis
+      .attr("text-anchor", "middle")  
+      .attr("transform", "translate("+ (width/2) +","+ (height+60) +")")  
       .text("Projects");
-
-  // Add a legend.
-  // var legend2 = svg.selectAll("legend2")
-  //     .data(categories)
-  //   .enter().append("g")
-  //     .attr("class", "legend2")
-  //     .attr("transform", function(d, i) { return "translate(0," + (i * 20 + height*1.1) + ")"; });
-
-  // legend2.append("line")
-  //     .attr("stroke", function(d) { console.log(color(d)); return color(d); })
-  //     .attr("x2", 8);
-
-  // legend2.append("text")
-  //     .attr("x", 12)
-  //     .attr("dy", ".31em")
-  //     .text(function(d) { return d; });
-
-  // divOption.rem
-
-  // d3.selectAll("#filters").clear();
-  
-
-  // divOption.append("a")
-  //   .attr("class", "btn btn-large active")
-  //   .attr("data-toggle", "tab")
-  //   // .attr("data-model", "alphabetical")
-  //   .text("alphabetical");
-
-  // divOption
-  // .data(categories).enter()
-  // .append("a")
-  // .attr("class", "btn btn-large")
-  // .attr("data-toggle", "tab")
-  // // .attr("data-model", "metrics-mean")
-  // .append("text")
-  //   .attr("x", 12)
-  //   .attr("dy", ".31em")
-  //   .text(function(d){ console.log(d); return "ok"} );
-
-  // legend2.append("text")
-  //     .attr("x", 12)
-  //     .attr("dy", ".31em")
-  //     .text(function(d) { return d; });
-
-
 }
 
 function buildFilter(){
