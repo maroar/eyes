@@ -33,6 +33,7 @@ svg {
 .legend {
   font-size: 18px;
   font-style: oblique;
+  cursor: pointer; 
 }
 
 .legend line {
@@ -76,7 +77,7 @@ svg {
       <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">Overview</a>
+      <a class="navbar-brand" href="#">Overview: </a><a class="navbar-brand" href="#" id="mainText"></a>
     </nav>
 
     <div class="container-fluid">
@@ -135,6 +136,8 @@ svg {
     -->
 
     <script>
+      click = false;
+      all = true;
       d3.csv("./data/data.csv", function(error, flowers) {
         if (error) alert("Problema para ler os dados de entrada!");
 
@@ -150,7 +153,7 @@ svg {
             .attr("width", w + m[1] + m[3])
             .attr("height", h + m[0] + m[2])
           .append("svg:g")
-            .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+            .attr("transform", "translate(" + m[3] + "," + m[0] + ")")
 
         color = d3.scaleOrdinal(d3.schemeCategory10);
 
@@ -166,16 +169,19 @@ svg {
         data[fieldCategory] = [];
         data[fieldName] = [];
         fields.forEach(function(d) { data[d] = []; });
-        flowers.forEach(function(d) {
+        flowers.forEach(function(d, i) {
           data[fieldCategory].push(d[fieldCategory]);
           data[fieldName].push(d[fieldName]);
+          d.id = i;
         });
         flowers.forEach(function(d) {
           fields.forEach(function(f) {
             data[f].push(+d[f]); 
           });
         });
-        
+
+        types.push('All');
+
         species = types; 
         traits = fields; 
 
@@ -195,7 +201,8 @@ svg {
             .data(species)
           .enter().append("svg:g")
             .attr("class", "legend")
-            .attr("transform", function(d, i) { return "translate(0," + (i * 20 + h*1.1) + ")"; });
+            .attr("transform", function(d, i) { return "translate(0," + (i * 20 + h*1.1) + ")"; })
+          .on('click', handleTypes);
 
         legend.append("svg:line")
             .attr("stroke", function(d) { return color(d); })
@@ -212,8 +219,14 @@ svg {
           .selectAll("path")
             .data(flowers)
           .enter().append("svg:path")
+            .attr("class", "linePath")
             .attr("d", path)
-            .attr("stroke", function(d) { return color(d.category); });
+            .attr("stroke", function(d) { return color(d.category); })
+            .attr("id", function(d) { return "l" + d.id; })
+            .style("opacity", 1)
+          .on("mouseover", handleMouseOver)
+          .on("mouseout", handleMouseOut)
+          .on("click", handleClick);
 
         // Add a group element for each trait.
         var g = svg.selectAll(".trait")
@@ -237,15 +250,94 @@ svg {
           return line(traits.map(function(p) { return [x(p), y[p](d[p])]; }));
         }
 
-        ////////////////////////////////////////////////////////////////////////
-        // scatter plot
-        ////////////////////////////////////////////////////////////////////////
         scatterGen("#div1", 5, 0);
         scatterGen("#div2", 5, 1);
         scatterGen("#div3", 5, 2);
         scatterGen("#div4", 5, 3);
         scatterGen("#div5", 5, 4);
       });
+
+      function addText(text) {
+        d3.select("#mainText").node().innerHTML = text;
+      }
+
+      function handleMouseOver(d, i) {
+        if (click)
+          return;
+
+        var obj = d3.select("#l" + i).node();
+        if(obj.style.opacity == 0) {
+          return;
+        } 
+
+        d3.selectAll('.linePath')
+               .style("opacity", 0);
+        d3.select("#l" + i).style("opacity", 1);
+      }
+
+      function handleMouseOut(d, i) {
+        if (click)
+          return;
+
+        var obj = d3.select("#l" + i).node();
+        if(obj.style.opacity == 0) {
+          return;
+        } 
+
+        if (all) {
+          d3.selectAll('.linePath')
+              .style("opacity", 1);
+        } else
+          handleTypes(d.category, i);
+      }
+
+      function handleClick(d, i) {
+        click = true;
+        addText(d.project);
+        d3.selectAll('.linePath')
+            .style("opacity", 0);
+        d3.selectAll('.dot')
+            .style("opacity", 0);
+
+        d3.select("#l" + i).style("opacity", 1);
+        d3.select("#c-0-" + i).style("opacity", 1);
+        d3.select("#c-1-" + i).style("opacity", 1);
+        d3.select("#c-2-" + i).style("opacity", 1);
+        d3.select("#c-3-" + i).style("opacity", 1);
+        d3.select("#c-4-" + i).style("opacity", 1);
+      }
+
+      function handleTypes(d, j) {
+        click = false;
+        addText("");
+        if (d == "All") {
+          all = true;
+          d3.selectAll('.linePath')
+               .style("opacity", 1);
+               d3.selectAll('.dot')
+               .style("opacity", 1);
+          return;
+        }
+
+        all = false;
+        for (i = 0; i < data.category.length; i++) {
+          if (data.category[i] != d) {
+            d3.select("#l" + i).style("opacity", 0);
+            d3.select("#c-0-" + i).style("opacity", 0);
+            d3.select("#c-1-" + i).style("opacity", 0);
+            d3.select("#c-2-" + i).style("opacity", 0);
+            d3.select("#c-3-" + i).style("opacity", 0);
+            d3.select("#c-4-" + i).style("opacity", 0);
+          } else {
+            d3.select("#l" + i).style("opacity", 1);
+            d3.select("#c-0-" + i).style("opacity", 1);
+            d3.select("#c-1-" + i).style("opacity", 1);
+            d3.select("#c-2-" + i).style("opacity", 1);
+            d3.select("#c-3-" + i).style("opacity", 1);
+            d3.select("#c-4-" + i).style("opacity", 1);
+          }
+        } 
+      }
 
       function scatterGen(place, attr1, attr2) {
         var margin = {top: 50, right: 50, bottom: 40, left: 100},
@@ -298,11 +390,13 @@ svg {
         svg.selectAll(".dot")
             .data(coord1)
           .enter().append("circle")
+            .attr("id", function(d, i) { return "c-" + attr2 + "-" + i; })
             .attr("class", "dot")
             .attr("r", 3.5)
             .attr("cx", function(d, i) { return sx(coord1[i]); })
             .attr("cy", function(d, i) { return sy(coord2[i]); })
-            .style("fill", function(d, i) { return color(data.category[i]); });
+            .style("fill", function(d, i) { return color(data.category[i]); })
+          .on("click", handleClick);
 
         svg.append("text")
             .attr("text-anchor", "middle")  

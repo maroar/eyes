@@ -163,7 +163,7 @@ Eliminados
 
         color = d3.scaleOrdinal(d3.schemeCategory10);;
 
-        xAxis = d3.axisBottom(x);
+        xAxis = d3.axisBottom(x).ticks(0);
 
         yAxis = d3.axisLeft(y).ticks(11).tickFormat(function(d) { return y.tickFormat(11,d3.format(".3"))(Math.log(d)); });
 
