@@ -2,20 +2,10 @@ function handleMouseOver(d, i) {
   d3.selectAll("circle").attr("opacity", 0.1);
   d3.select("#c" + i).attr("opacity", 1);
   d3.select("#c" + i).attr("fill", function(d) { return color(d.category); }).attr("r", radius*2);
-
-  // svg.append("text")
-  //     .attr("id", "t-" + d.id)
-  //     .attr("x", function() { return x(d.id); }) 
-  //     .attr("y", function() { return y(d.avgAll) - 15; })
-  //   .text(function() {
-  //     return d.name; 
-  //   });
 }
 
 function handleMouseOut(d, i) {
   d3.select("#c" + i).transition().delay(200).attr("r", function() { return (d.rm/100)*radius; }).on("end", function(a) { this.setAttribute("fill", "none") });
-
-  // d3.select("#t-" + d.id).remove();
 
   d3.selectAll("circle").attr("opacity", 1);
 
@@ -209,9 +199,6 @@ d3.csv("./data/dataVisualization.csv", function(error, inputData) {
 
 function processData(){
   radius = 10;
-  // t = d3.transition()
-  //   .duration(500)
-  //   .ease(d3.easeLinear);
 
   names = [];
   ys = [];

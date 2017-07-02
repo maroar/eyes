@@ -3,12 +3,9 @@ var width = (d3.select("#mainCanvas").node().offsetWidth) - margin.left - margin
 var height = (window.innerHeight/1.5) - margin.top - margin.bottom;
 
 var x = d3.scaleLinear();
-  // .domain(d3.extent(ids))
-  // .range([0, width]);
 
 var y = d3.scaleLog()
   .base(2)
-  // .domain(d3.extent(ys))
   .range([height, 0]);
 
 var color = d3.scaleOrdinal(d3.schemeCategory10);;

@@ -1,20 +1,14 @@
 var div;
 var projectsTooltip;
 var barSelected;
-// var keysTooltip = ["field", "type", "method"];
 var keysTooltip = ["rm", "avgAll", "category"];
 var keysText = ["Replacement message", "Average all", "Category"];
 var colorTooltip;
 
 function tooltip() {
-  // colorTooltip = colors;
-  // projectsTooltip = projects;
   $("*[rel=tooltip]").on("mouseover", function(e) {
-    // var id = $(this).attr('data-target').split("p")[1];
     var id = $(this).attr('id').split("c")[1];
-    // console.log(id);
     circleSelected = dataFilter[id];
-    // console.log(circleSelected);
     drawChartTooltip(e.pageY, e.pageX, circleSelected);
     showToolTip();
   }).on("mouseout", function(e){
@@ -38,15 +32,6 @@ var yAxisToolTip = d3.axisLeft(yToolTip).tickSize(0).tickPadding(6);
 
 function drawChartTooltip(top, left, project){
 
-  // if(typeChart == 0){
-  //   xToolTip.domain([0, max(project)]).nice(3);
-  //   xAxisToolTip = d3.axisBottom(xToolTip).ticks(3);
-  // }else{
-  //   xToolTip.domain([0, 1]).nice(3);
-  //   // xAxisToolTip.tickFormat(d3.format(".0%"));
-  // }
-  // yToolTip.domain(keysTooltip);
-
   d3.select(".tooltip").remove();
 
   div = d3.select("body")
@@ -60,34 +45,17 @@ function drawChartTooltip(top, left, project){
   var svg = div.append("div").attr("class", "svg-metrics")
     .attr("width", widthToolTip + marginToolTip.left + marginToolTip.right)
     .attr("height", heightToolTip + marginToolTip.top + marginToolTip.bottom)
-    // .append("div")
     .attr("transform", "translate(" + marginToolTip.left + "," + marginToolTip.top + ")");
 
   svg.selectAll(".circleTooltip")
     .data(keysTooltip)
     .enter().append("g")
     .attr("class", function(d) { return "circleTooltip"; })
-    // .attr("fill", function(d, i) { return colorTooltip[i]; })
-    // .attr("x", function(d) { return xToolTip(Math.min(0, barSelected[d])); })
-    // .attr("y", function(d) { return yToolTip(d); })
     .append("div")
     .text(function(d, i){ 
       var value = (d == "category") ? circleSelected[d] : parseFloat(circleSelected[d]).toFixed(2); 
       return (d == "rm") ? keysText[i]+": "+value + "%" : keysText[i]+": "+value ;
     });
-    // parseFloat(conta.toFixed(2))
-    // .attr("width", function(d) { return formatWidth(d); })
-    // .attr("height", yToolTip.bandwidth());
-
-  // svg.append("g")
-  //   .attr("class", "x-axis")
-  //   .attr("transform", "translate(0," + heightToolTip + ")")
-  //   .call(xAxisToolTip);
-
-  // svg.append("g")
-  //   .attr("class", "y-axis")
-  //   .attr("transform", "translate(" + xToolTip(0) + ",0)")
-  //   .call(yAxisToolTip);
 }
 
 function max(project){
