@@ -71,7 +71,11 @@ function drawChartTooltip(top, left, project){
     // .attr("x", function(d) { return xToolTip(Math.min(0, barSelected[d])); })
     // .attr("y", function(d) { return yToolTip(d); })
     .append("div")
-    .text(function(d, i){ return (d == "rm") ? keysText[i]+": "+circleSelected[d] + "%" : keysText[i]+": "+circleSelected[d]});
+    .text(function(d, i){ 
+      var value = (d == "category") ? circleSelected[d] : parseFloat(circleSelected[d]).toFixed(2); 
+      return (d == "rm") ? keysText[i]+": "+value + "%" : keysText[i]+": "+value ;
+    });
+    // parseFloat(conta.toFixed(2))
     // .attr("width", function(d) { return formatWidth(d); })
     // .attr("height", yToolTip.bandwidth());
 
