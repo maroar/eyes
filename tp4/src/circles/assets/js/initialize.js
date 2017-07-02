@@ -22,7 +22,8 @@ var dataFilter;
 
 var categories;
 
-var filterData = 0;
+var filterData= 0;
+var filterCategory = 0;
 
 function initializeCategories(){
   categories = [];

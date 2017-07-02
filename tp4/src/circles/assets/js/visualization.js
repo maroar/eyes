@@ -25,16 +25,17 @@ function handleMouseOut(d, i) {
 function buildVisualization(){
   d3.selectAll("svg").remove();
 
-  if(filterData == 0){
+  if(filterCategory == 0){
     margin.right = 300;
   }else {
     margin.right = 50;
   }
+
   width = (d3.select("#mainCanvas").node().offsetWidth) - margin.left - margin.right;
   
   x.range([0, width]);
 
-  x.domain(d3.extent(ids));
+  x.domain([0, dataFilter.length]);
 
   y.domain(d3.extent(ys));
 
@@ -68,7 +69,7 @@ function buildVisualization(){
     .enter()
       .append("circle")
         .attr("rel", "tooltip")
-        .attr("cx", function(d) { return x(d.id); })
+        .attr("cx", function(d, i) { return x(i); })
         .attr("cy", function(d) { return y(d.avgAll); })
         .attr("r", function(d) { return (d.rm/100)*radius; })
         .attr("id", function(d, i) { return "c" + i; })
@@ -78,10 +79,10 @@ function buildVisualization(){
       .on("mouseout", handleMouseOut);
 }
 
-function buildFilter(){
+function buildFilterCategories(){
 
   var divOptionData = d3.select("body")
-    .select("#filterData")
+    .select("#filterCategory")
     .append("div")
     .attr("class", "btn-group filter")
     .attr("data-toggle", "buttons-radio");  
@@ -118,9 +119,48 @@ function buildFilter(){
     .attr("style", "color: red;");
 
     filter();
-    // processData();
-    // buildGraph(0);
-    // tooltip([color(0), color(1), color(2)]);
+
+  });
+}
+
+function buildFilterData(){
+
+  var divOptionData = d3.select("body")
+    .select("#filterData")
+    .append("div")
+    .attr("class", "btn-group filter-data")
+    .attr("data-toggle", "buttons-radio");  
+
+  divOptionData.append("a")
+      .attr("data-toggle", "tab")
+      .attr("rel", "filter-data")
+      .attr("class", "btn btn-large")
+      .attr("data-target", 0)
+      .text("Alphabetical");
+
+  divOptionData.append("a")
+      .attr("data-toggle", "tab")
+      .attr("rel", "filter-data")
+      .attr("class", "btn btn-large")
+      .attr("data-target", 1)
+      .text("Replacement Message Percentual");
+
+  $(".filter-data a[data-target='0']")
+    .addClass("active-filter-data")
+    .attr("style", "color: blue;");
+
+  $("*[rel=filter-data]").on("click", function(e) {
+    var id = $(this).attr('data-target');
+
+    $(".filter-data a")
+      .removeClass("active-filter-data")
+      .removeAttr("style");
+    
+    $(".filter-data a[data-target='"+id+"']")
+    .addClass("active-filter-data")
+    .attr("style", "color: blue;");
+
+    filter();
 
   });
 }
@@ -157,14 +197,11 @@ d3.csv("./data/dataVisualization.csv", function(error, inputData) {
 
   processData();
 
-  // x.domain(d3.extent(ids));
-
-  // y.domain(d3.extent(ys));
-
   initializeCategories();
-  buildFilter();
+  buildFilterData();
+  buildFilterCategories();
   buildVisualization();
-  if(filterData == 0){
+  if(filterCategory == 0){
     buildLegend();
   }
   tooltip();
@@ -181,10 +218,9 @@ function processData(){
   ids = [];
   dataFilter = [];
 
-  if(filterData == 0){
+  if(filterCategory == 0){
     data.forEach(function(d, i) {
-      dataFilter[i] = data[i];        
-      // names.push(d.name);
+      dataFilter[i] = data[i];       
       d.avgAll = +d.avgAll;
       if (d.avgAll <= 0) { alert(d.name);}
       ys.push(d.avgAll);
@@ -195,9 +231,8 @@ function processData(){
   }else{
     var index = 0;
     data.forEach(function(d, i) {   
-      if(data[i].category == categories[(filterData - 1)]){
+      if(data[i].category == categories[(filterCategory - 1)]){
         dataFilter[index] = data[i];
-        // names.push(d.name);
         d.avgAll = +d.avgAll;
         if (d.avgAll <= 0) { alert(d.name);}
         ys.push(d.avgAll);
@@ -208,15 +243,26 @@ function processData(){
       }
     });
   }
+  sortData();
+}
+
+function sortData(){
+  if(filterData == 0){
+    dataFilter.sort(function (x, y) {
+      return d3.ascending(x.name.toLowerCase(), y.name.toLowerCase());
+    });
+  }else{
+    dataFilter.sort(function (x, y) {
+      return (x.rm - y.rm);
+    });
+  }
 }
 
 window.addEventListener('resize', function(){
-  // width = (d3.select("#mbars").node().offsetWidth*.9) - margin.left - margin.right,
-  height = (window.innerHeight * 0.8) - margin.top - margin.bottom;
-  // x.rangeRound([0, width]);
+  var height = (window.innerHeight/1.5) - margin.top - margin.bottom;
   y.range([height, 0]);
   buildVisualization();
-  if(filterData == 0){
+  if(filterCategory == 0){
     buildLegend();
   }
   tooltip();

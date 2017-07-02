@@ -1,14 +1,15 @@
 function filter(){
   name = $(".activeFilter").attr("data-target");
-  if(name != filterData){
-  	filterData = name;
+  filterData = $(".active-filter-data").attr("data-target");
+  // if(name != filterCategory){
+  	filterCategory = name;
   	processData();
     buildVisualization();
-    if(filterData == 0){
+    if(filterCategory == 0){
       buildLegend();
     }
     tooltip();
     // tooltip([color(0), color(1), color(2)]);
     // console.log(name);
-  }
+  // }
 }

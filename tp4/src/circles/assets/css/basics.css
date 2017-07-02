@@ -36,6 +36,15 @@ svg {
   font-style: oblique;
 }
 
+.filter-data {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.active-filter-data{
+  font-style: oblique;
+}
+
 .setosa {
   stroke: #800;
 }
