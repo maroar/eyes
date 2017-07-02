@@ -2,33 +2,33 @@
 <meta charset="utf-8">
 <style>
 
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
 
-.box {
-  font: 10px sans-serif;
-}
+    .box {
+        font: 10px sans-serif;
+    }
 
-.box line,
-.box rect,
-.box circle {
-  fill: #fff;
-  stroke: #000;
-  stroke-width: 1.5px;
-}
+    .box line,
+    .box rect,
+    .box circle {
+        fill: #fff;
+        stroke: #000;
+        stroke-width: 1.5px;
+    }
 
-.box .center {
-  stroke-dasharray: 3,3;
-}
+    .box .center {
+        stroke-dasharray: 3,3;
+    }
 
-.box .outlier {
-  fill: none;
-  stroke: #ccc;
-}
+    .box .outlier {
+        fill: none;
+        stroke: #ccc;
+    }
 
 </style>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -42,210 +42,233 @@ body {
     <!-- Custom styles for this template -->
     <link href="../vendors/css/dashboard.css" rel="stylesheet">
     <style type="text/css">
-label {
-  display: block;
-}
+        label {
+            display: block;
+        }
     </style>
-  </head>
+</head>
 
 
 <body>
     <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-      <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="#">Deprecated elements</a>
+        <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Deprecated elements</a>
     </nav>
 
-       <div class="container-fluid">
-      <div class="row">
-        <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
-          <ul class="nav nav-pills flex-column">
-            <li class="nav-item">
-              <a class="nav-link" href="../index.html">Dashboard</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../coordenadasParalelas/index.html">Overview </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../circles/index.html">Categories</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../scatter/index.html">Subst msgs / Deprecated elements</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../bar/index.html">Deprecated elements<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="#">box Plot</a>
-            </li>
-          </ul>
-        </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../coordenadasParalelas/index.html">Overview </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../circles/index.html">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../scatter/index.html">Subst msgs / Deprecated elements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../bar/index.html">Deprecated elements<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">box Plot</a>
+                    </li>
+                </ul>
+            </nav>
 
-        <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-   <div class="col-sm-12">
-            <h3>quantElements_last</h3>
-          <div class="row">
-            <div class="col-md-4" id="box1"></div>
-          </div>
-            <br>
-            <h3>quantElementsDeprecated_last</h3>
-          <div class="row">
-            <div class="col-md-4" id="box2"></div>
-          </div>
-            <h3>quantElementsDeprecatedWithRelMessage_last</h3>
-          <div class="row">
-            <div class="col-md-4" id="box3"></div>
-          </div>
-   </div>
-  </main>
-      </div>
+            <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+                <div class="col-sm-12">
+                    <table><tr><td width='300'>
+                     quantElementslast
+                                <div class="row">
+                                    <div class="col-md-4" id="box1"></div>
+                                </div>
+                            </td>
+                            <td width='300'>
+                                quantElementsDeprecatedlast
+                                <div class="row">
+                                    <div class="col-md-4" id="box2"></div>
+                                </div>
+                            </td>
+                            <td width='300'>
+                                quantElementsDeprecatedWithRelMessage_last
+                                <div class="row">
+                                    <div class="col-md-4" id="box3"></div>
+                                </div>
+                            </td></tr></table>
+                </div>
+            </main>
+        </div>
     </div>
-    
+
     <script src="//d3js.org/d3.v3.min.js"></script>
-<!--<script src="../vendors/js/d3/d3.min.js"></script>-->
-<script src="boxPlot.js"></script>
+    <!--<script src="../vendors/js/d3/d3.min.js"></script>-->
+    <script src="boxPlot.js"></script>
 
 
 
-<script>
+    <script>
 
-var margin = {top: 10, right: 50, bottom: 20, left: 50},
-    width = 120 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+        var margin = {top: 10, right: 50, bottom: 20, left: 50},
+        width = 120 - margin.left - margin.right,
+                height = 500 - margin.top - margin.bottom;
 
-var min = Infinity,
-    max = -Infinity;
+        var min = Infinity,
+                max = -Infinity;
 
-var chart = d3.box()
-    .whiskers(iqr(1.5))
-    .width(width)
-    .height(height);
-//boxspot 3
-d3.csv("quantElementsDeprecatedWithRelMessage_last.csv", function(error, csv) {
-  if (error) throw error;
+        var chart = d3.box()
+                .whiskers(iqr(1.5))
+                .width(width)
+                .height(height);
+    //boxspot 3
+        d3.csv("quantElementsDeprecatedWithRelMessage_last.csv", function (error, csv) {
+            if (error)
+                throw error;
 
-  var data = [];
+            var data = [];
 
-  csv.forEach(function(x) {
-    var e = Math.floor(x.Expt - 1),
-        r = Math.floor(x.Run - 1),
-        s = Math.floor(x.Speed),
-        d = data[e];
-    if (!d) d = data[e] = [s];
-    else d.push(s);
-    if (s > max) max = s;
-    if (s < min) min = s;
-  });
+            csv.forEach(function (x) {
+                var e = Math.floor(x.Expt - 1),
+                        r = Math.floor(x.Run - 1),
+                        s = Math.floor(x.Speed),
+                        d = data[e];
+                if (!d)
+                    d = data[e] = [s];
+                else
+                    d.push(s);
+                if (s > max)
+                    max = s;
+                if (s < min)
+                    min = s;
+            });
 
-  chart.domain([min, max]);
+            chart.domain([min, max]);
 
-  var svg = d3.select("#box3").selectAll("svg")
-      .data(data)
-    .enter().append("svg")
-      .attr("class", "box")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.bottom + margin.top)
-    .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-      .call(chart);
-
-  
-});
-    //boxspot 1
-d3.csv("quantElements_last.csv", function(error, csv) {
-  if (error) throw error;
-
-  var data = [];
-
-  csv.forEach(function(x) {
-    var e = Math.floor(x.Expt - 1),
-        r = Math.floor(x.Run - 1),
-        s = Math.floor(x.Speed),
-        d = data[e];
-    if (!d) d = data[e] = [s];
-    else d.push(s);
-    if (s > max) max = s;
-    if (s < min) min = s;
-  });
-
-  chart.domain([min, max]);
-
-  var svg = d3.select("#box1").selectAll("svg")
-      .data(data)
-    .enter().append("svg")
-      .attr("class", "box")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.bottom + margin.top)
-    .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-      .call(chart);
- 
-});
+            var svg = d3.select("#box3").selectAll("svg")
+                    .data(data)
+                    .enter().append("svg")
+                    .attr("class", "box")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.bottom + margin.top)
+                    .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+                    .call(chart);
 
 
+        });
+        //boxspot 1
+        d3.csv("quantElements_last.csv", function (error, csv) {
+            if (error)
+                throw error;
 
+            var data = [];
 
+            csv.forEach(function (x) {
+                var e = Math.floor(x.Expt - 1),
+                        r = Math.floor(x.Run - 1),
+                        s = Math.floor(x.Speed),
+                        d = data[e];
+                if (!d)
+                    d = data[e] = [s];
+                else
+                    d.push(s);
+                if (s > max)
+                    max = s;
+                if (s < min)
+                    min = s;
+            });
 
-//boxspot 2
-d3.csv("quantElementsDeprecated_last.csv", function(error, csv) {
-  if (error) throw error;
+            chart.domain([min, max]);
 
-  var data = [];
+            var svg = d3.select("#box1").selectAll("svg")
+                    .data(data)
+                    .enter().append("svg")
+                    .attr("class", "box")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.bottom + margin.top)
+                    .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+                    .call(chart);
 
-  csv.forEach(function(x) {
-    var e = Math.floor(x.Expt - 1),
-        r = Math.floor(x.Run - 1),
-        s = Math.floor(x.Speed),
-        d = data[e];
-    if (!d) d = data[e] = [s];
-    else d.push(s);
-    if (s > max) max = s;
-    if (s < min) min = s;
-  });
-
-  chart.domain([min, max]);
-
-  var svg = d3.select("#box2").selectAll("svg")
-      .data(data)
-    .enter().append("svg")
-      .attr("class", "box")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.bottom + margin.top)
-    .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-      .call(chart);
-
-  
-});
+        });
 
 
 
 
-function randomize(d) {
-  if (!d.randomizer) d.randomizer = randomizer(d);
-  return d.map(d.randomizer);
-}
 
-function randomizer(d) {
-  var k = d3.max(d) * .02;
-  return function(d) {
-    return Math.max(min, Math.min(max, d + k * (Math.random() - .5)));
-  };
-}
+    //boxspot 2
+        d3.csv("quantElementsDeprecated_last.csv", function (error, csv) {
+            if (error)
+                throw error;
 
-// Returns a function to compute the interquartile range.
-function iqr(k) {
-  return function(d, i) {
-    var q1 = d.quartiles[0],
-        q3 = d.quartiles[2],
-        iqr = (q3 - q1) * k,
-        i = -1,
-        j = d.length;
-    while (d[++i] < q1 - iqr);
-    while (d[--j] > q3 + iqr);
-    return [i, j];
-  };
-}
+            var data = [];
 
-</script>
+            csv.forEach(function (x) {
+                var e = Math.floor(x.Expt - 1),
+                        r = Math.floor(x.Run - 1),
+                        s = Math.floor(x.Speed),
+                        d = data[e];
+                if (!d)
+                    d = data[e] = [s];
+                else
+                    d.push(s);
+                if (s > max)
+                    max = s;
+                if (s < min)
+                    min = s;
+            });
+
+            chart.domain([min, max]);
+
+            var svg = d3.select("#box2").selectAll("svg")
+                    .data(data)
+                    .enter().append("svg")
+                    .attr("class", "box")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.bottom + margin.top)
+                    .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+                    .call(chart);
+
+
+        });
+
+
+
+
+        function randomize(d) {
+            if (!d.randomizer)
+                d.randomizer = randomizer(d);
+            return d.map(d.randomizer);
+        }
+
+        function randomizer(d) {
+            var k = d3.max(d) * .02;
+            return function (d) {
+                return Math.max(min, Math.min(max, d + k * (Math.random() - .5)));
+            };
+        }
+
+    // Returns a function to compute the interquartile range.
+        function iqr(k) {
+            return function (d, i) {
+                var q1 = d.quartiles[0],
+                        q3 = d.quartiles[2],
+                        iqr = (q3 - q1) * k,
+                        i = -1,
+                        j = d.length;
+                while (d[++i] < q1 - iqr)
+                    ;
+                while (d[--j] > q3 + iqr)
+                    ;
+                return [i, j];
+            };
+        }
+
+    </script>
