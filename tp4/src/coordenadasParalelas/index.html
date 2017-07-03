@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Vizualization - Final Project</title>
+    <title>API Depreciation - Final Project</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../vendors/css/bootstrap.min.css" rel="stylesheet">
@@ -77,7 +77,7 @@ svg {
       <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">Overview: </a><a class="navbar-brand" href="#" id="mainText"></a>
+      <a class="navbar-brand" href="#">Overview </a><a class="navbar-brand" href="#" id="mainText"></a>
     </nav>
 
     <div class="container-fluid">
@@ -85,7 +85,7 @@ svg {
         <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="../index.html">Dashboard</a>
+              <a class="nav-link" href="../index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>
@@ -94,31 +94,51 @@ svg {
               <a class="nav-link" href="../circles/index.html">Categories</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../scatter/index.html">Subst msgs / Deprecated elements</a>
+              <a class="nav-link" href="../scatter/index.html">Substitution Messages / Deprecated Elements</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../bar/index.html">Deprecated elements</a>
+              <a class="nav-link" href="../bar/index.html">Deprecated Elements</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../box/index.html">box Plot</a>
+              <a class="nav-link" href="../box/index.html">API Elements Boxplot</a>
             </li>
           </ul>
         </nav>
 
         <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+          <div  style="text-align:justify;"> 
+            <h4><p>Overview</p></h4>            
+            <h6><p>Software APIs evolve over time and customers should upgrade to the new features to use the benefits. However, compatibility with older versions should be maintained. To sustain compatibility, obsolete API elements must contain clear messages about how clients perform the updates. The used database contains 661 Java systems hosted on GitHub. For this study, we identified 12 characteristics that influence the substitution frequency of messages in systems. The characteristics are: popularity, size, community, activity and maturity. The systems were grouped according to their goal: Applications, Software Tools, Libraries and Web Frameworks, Libraries and Web Frameworks that are not Web, and Basic software (system software).
+            </p></h6>
+          </div>
+
           <div class="row">
             <div class="col-sm-12" id="mainCanvas">
-
-            </div>
-            <div class="col-sm-6" id="div1">
+            </div>          
+            <div class="col-sm-6" id="div1">          
+              <div  style="text-align:justify;">           
+                <h6><p>1. Popularity: Number of stars in GitHub, number of forks and number of watchers</p></h6>
+              </div>
             </div>
             <div class="col-sm-6" id="div2">
+              <div  style="text-align:justify;">           
+                <h6><p>2. Size: Number of files and number of API elements</p></h6>
+              </div>
             </div>
             <div class="col-sm-6" id="div3">
+              <div  style="text-align:justify;">           
+                <h6><p>3. Community: Number of contributors, average of files per contributor and Average of API elements per contributor</p></h6>
+              </div>
             </div>
             <div class="col-sm-6" id="div4">
+              <div  style="text-align:justify;">           
+                <h6><p>4. Activity: Number of commits, number of releases and average launch time between releases in days</p></h6>
+              </div>
             </div>
             <div class="col-sm-6" id="div5">
+              <div  style="text-align:justify;">           
+                <h6><p>5. Maturity: System age in days.</p></h6>
+              </div>
             </div>
           </div>
         </main>
