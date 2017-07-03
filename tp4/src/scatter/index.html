@@ -13,62 +13,10 @@
 
     <!-- Custom styles for this template -->
     <link href="../vendors/css/dashboard.css" rel="stylesheet">
-        <style type="text/css">
 
-svg {
-  font-size: 14px;
-}
+    <link rel="stylesheet" type="text/css" href="assets/css/basics.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/tooltip.css"/>
 
-.foreground path {
-  fill: none;
-  stroke-opacity: .5;
-  stroke-width: 1.5px;
-}
-
-.foreground path.fade {
-  stroke: #000;
-  stroke-opacity: .05;
-}
-
-.legend {
-  font-size: 18px;
-  font-style: oblique;
-}
-
-.legend line {
-  stroke-width: 2px;
-}
-
-.setosa {
-  stroke: #800;
-}
-
-.versicolor {
-  stroke: #080;
-}
-
-.virginica {
-  stroke: #008;
-}
-
-.brush .extent {
-  fill-opacity: .3;
-  stroke: #fff;
-  shape-rendering: crispEdges;
-}
-
-.axis line, .axis path {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.axis text {
-  text-shadow: 0 1px 0 #fff;
-  cursor: move;
-}
-
-    </style>
   </head>
 
   <body>
@@ -105,10 +53,9 @@ svg {
         </nav>
 
         <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+          <div id="filterCategory" class="row"> </div>
           <div class="row">
-            <div class="col-sm-12" id="mainCanvas">
-
-            </div>
+            <div class="col-sm-12" id="mainCanvas"> </div>
           </div>
         </main>
       </div>
@@ -120,125 +67,10 @@ svg {
     <script src="../vendors/js/tether.min.js"></script>
     <script src="../vendors/js/bootstrap.min.js"></script>
     <script src="../vendors/js/ie10-viewport-bug-workaround.js"></script>
-    
-    <!-- 
-    reference:
-    http://mbostock.github.io/d3/talk/20111116/iris-parallel.html
 
-Eliminados
-    CrossBow,100,0,Web libraries and frameworks
-    citrus,68.1818181818,0,Web libraries and frameworks
-    poi,42.8251121076,0,Application
-
-    -->
-
-    <script>
-      d3.csv("./data/dataVisualization.csv", function(error, inputData) {
-        if (error) alert("Problema para ler os dados de entrada!");
-
-        data = inputData;
-        radius = 3;
-
-        rm = [];
-        ed = [];
-        typesDuplicated = [];
-
-        data.forEach(function(d, i) {         
-          d.rm = +d.rm;
-          d.ed = +d.ed;
-          ed.push(d.ed);
-          rm.push(d.rm);
-          typesDuplicated.push(d.category);
-          d.id = i;
-        });
-
-        types = typesDuplicated.filter(function(item, pos) {
-          return typesDuplicated.indexOf(item) == pos;
-        });
-
-        aux = {};
-        types.forEach(function(d) {aux[d] = 0;});
-        data.forEach(function(d, i) {         
-          aux[d.category] += 1; 
-        });
-
-
-        margin = {top: 50, right: 100, bottom: 30, left: 80};
-        width = (d3.select("#mainCanvas").node().offsetWidth) - margin.left - margin.right;
-        height = (window.innerHeight/1.5) - margin.top - margin.bottom;
-
-        side = Math.min(width, height);
-
-        x = d3.scaleLinear()
-          .domain(d3.extent(ed))
-          .range([0, side]);
-
-        y = d3.scaleLinear()
-          .domain(d3.extent(rm))
-          .range([side, 0]);
-
-        color = d3.scaleOrdinal(d3.schemeCategory10);;
-
-        xAxis = d3.axisBottom(x);
-
-        yAxis = d3.axisLeft(y);//.ticks(11).tickFormat(function(d) { return y.tickFormat(11,d3.format(".3"))(Math.log(d)); });
-
-        svg = d3.select("#mainCanvas").append("svg")
-            .attr("width", side + margin.left + margin.right)
-            .attr("height", side + margin.top + margin.bottom)
-          .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-        svg.append("g")
-            .attr("class", "x axis")
-            .attr("transform", "translate(0," + side + ")")
-          .call(xAxis);
-
-        svg.append("g")
-            .attr("class", "y axis")
-          .call(yAxis);
-
-        svg.append("text")
-            .attr("text-anchor", "middle")  
-            .attr("transform", "translate(" + (-50) +","+(side/2)+")rotate(-90)")  
-            .text("% Replacement Messages");
-
-        svg.append("text")
-            .attr("text-anchor", "middle")  
-            .attr("transform", "translate("+ (side/2) +","+ (side+30) +")")  
-            .text("% Deprecated Elements");
-
-        circles = svg.append("g").selectAll("circle")
-          .data(data)
-          .enter()
-          .append("circle")
-            .attr("cx", function(d) { return x(d.ed); })
-            .attr("cy", function(d) { return y(d.rm); })
-            .attr("r", function(d) { return radius; })
-            .attr("id", function(d) { return "c" + d.id; })
-            //.attr("stroke", function(d) { return color(d.category); })
-            .attr("fill", "black")
-          .on("mouseover", handleMouseOver)
-          .on("mouseout", handleMouseOut);
-
-      });
-
-      function handleMouseOver(d, i) {  // Add interactivity
-        d3.select("#c" + i).attr("fill", function(d) { return color(d.category); }).attr("r", radius*2);
-
-        svg.append("text")
-            .attr("id", "t-" + d.id)
-            .attr("x", function() { return x(d.ed); }) 
-            .attr("y", function() { return y(d.rm) - 15; })
-          .text(function() {
-            return d.project; 
-          });
-      }
-
-      function handleMouseOut(d, i) {
-        d3.select("#c" + i).transition().delay(200).attr("r", function() { return radius; }).on("end", function(a) { this.setAttribute("fill", "black"); d3.select("#t-" + d.id).remove(); });
-      }
-
-    </script>
+    <script src="assets/js/initialize.js"></script>
+    <script src="assets/js/filter.js"></script>
+    <script src="assets/js/tooltip.js"></script>
+    <script src="assets/js/visualization.js"></script>
   </body>
 </html>
