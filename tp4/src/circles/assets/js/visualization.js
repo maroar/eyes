@@ -169,7 +169,7 @@ function buildLegend(){
     .attr("x", width - 18)
     .attr("width", 18)
     .attr("height", 18)
-    .style("fill", color);
+    .style("fill", function(d, i){ return color(categories[(categories.length - 1) - i]);});
 
   legend.append("text")
     .attr("x", width + 10)
