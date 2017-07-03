@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Dashboard Template for Bootstrap</title>
+    <title>API Depreciation - Final Project</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./vendors/css/bootstrap.min.css" rel="stylesheet">
@@ -20,7 +21,7 @@
       <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">Dashboard</a>
+      <a class="navbar-brand" href="#">API Depreciation</a>
     </nav>
 
     <div class="container-fluid">
@@ -28,7 +29,7 @@
         <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Dashboard <span class="sr-only">(current)</span></a>
+              <a class="nav-link active" href="#">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./coordenadasParalelas/index.html">Overview</a>
@@ -37,60 +38,23 @@
               <a class="nav-link" href="./circles/index.html">Categories</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./scatter/index.html">Subst msgs / Deprecated elements</a>
+              <a class="nav-link" href="./scatter/index.html">Substitution Messages / Deprecated Elements</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./bar/index.html">Deprecated elements</a>
+              <a class="nav-link" href="./bar/index.html">Deprecated Elements</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../box/index.html">API Elements Boxplot</a>
             </li>
           </ul>
         </nav>
 
         <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-          <section class="row text-center placeholders">
-            <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <div class="text-muted">Something else</div>
-            </div>
-            <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </section>
-
-          <h2>Section title</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-              </tbody>
-            </table>
+          <div  style="text-align:justify;">
+            <h4><p>Home</p></h4>            
+            <h6><p>A common practice during the development of software systems is the use of frameworks and libraries [Kim et al. 2006], facilitating reuse through Application Programming Interfaces (APIs) [Konstantopoulos et al. 2009], and increasing the productivity of development teams [Moser and Nierstrasz 1996]. However, frameworks / libraries are constantly evolving, hence their APIs are subject to change. That way, as APIs evolve, it is desirable that your client systems be upgraded to take advantage of the updates.</p>
+            <p>During the evolution of an API, methods, classes or fields can be modified, renamed or removed. In order to facilitate the transition process for customers to adopt updates of these API elements, developers can make use of the depreciation mechanism. Through depreciation, you also need to maintain compatibility between the API and your clients. However, some best practices should be adopted to help the developers of client systems transition to a new version of the used APIs. One such good practice is to depreciate the APIs with clear messages indicating how to treat the depreciated element or provide a possible indication of how to replace it. In order to facilitate the depreciation process, many programming languages offer mechanisms to deprecate elements of APIs with messages, i.e. Java makes use of the @deprecated Javadoc tag. However, there are studies that point out that APIs are often deprecated with obscure messages, or even without messages, making it difficult to update their clients [Robbes et al. 2012]. However, these studies do not use visualization techniques that can aid in obtaining relevant information to the study of depreciation phenomena. In this context, this site features views on API Depreciation and Replace Messages.</p>
+            <p>Please use the side menu to navigate.</p></h6>
           </div>
         </main>
       </div>

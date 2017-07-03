@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Vizualization - Final Project</title>
+    <title>API Depreciation - Final Project</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../vendors/css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
       <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">Substitution messages / Deprecated elements</a>
+      <a class="navbar-brand" href="#">API Depreciation</a>
     </nav>
 
     <div class="container-fluid">
@@ -32,27 +32,31 @@
         <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="../index.html">Dashboard</a>
+              <a class="nav-link" href="../index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../coordenadasParalelas/index.html">Overview </a>
+              <a class="nav-link" href="../coordenadasParalelas/index.html">Overview</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../circles/index.html">Categories</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#">Subst msgs / Deprecated elements<span class="sr-only">(current)</span></a>
+              <a class="nav-link active" href="#">Substitution Messages / Deprecated Elements<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../bar/index.html">Deprecated elements</a>
+              <a class="nav-link" href="../bar/index.html">Deprecated Elements</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../box/index.html">box Plot</a>
+              <a class="nav-link" href="../box/index.html">API Elements Boxplot</a>
             </li>
           </ul>
         </nav>
 
         <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+        <div  style="text-align:justify;">
+            <h4><p>Substitution Messages / Deprecated Elements</p></h4>            
+            <h6><p>Shows the relationship between the percentage of obsolete elements and the percentage of elements with substitution message. Notice that the studied systems present a relatively low rate of obsolete elements. However the percentage of elements with substitution message apparently does not vary linearly.</p></h6>
+          </div>
           <div id="filterCategory" class="row"> </div>
           <div class="row">
             <div class="col-sm-12" id="mainCanvas"> </div>
